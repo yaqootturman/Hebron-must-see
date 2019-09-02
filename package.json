@@ -7,8 +7,9 @@
     "start": "node ./server/server.js",
     "build:client": "cd client && npm run build",
     "dev": "nodemon ./server/server.js",
-    "eslint": "./node_modules/.bin/eslint ./server ",
-    "dev:all": "npm run build:client && npm run dev"
+    "dev:all": "npm run build:client && npm run dev",
+    "lint": "./node_modules/.bin/eslint ./server",
+    "lint:fix": "./node_modules/.bin/eslint ./server --fix"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,11 @@
   "homepage": "https://github.com/fack2/Hebron-must-see#readme",
   "devDependencies": {
     "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "express": "^4.17.1",
     "nodemon": "^1.19.1"
   },
