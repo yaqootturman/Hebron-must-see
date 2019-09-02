@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import './App.css';
+import './App.css'
 
 function App() {
-  return (
-   <>loading</>
-  );
+  return <>loading</>
 }
 
-export default App;
+export default App
