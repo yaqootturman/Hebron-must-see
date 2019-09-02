@@ -1,0 +1,36 @@
+{
+  "name": "Hebron-must-see",
+  "version": "1.0.0",
+  "description": "# Description  Our website is a tourist guide for Hebron. It provides some services for Hebron new visitors. These services include showing the must-see places in hebron and their ratings. in addition to provide them with a list of most famous tourist guides for hebron tours. Moreover, the tourist can see a list of most common used words in arabic and their pronounciation to help tourists to communicate in the places they go.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "build:client": "cd client && npm run build",
+    "dev": "nodemon ./server/index.js",
+    "dev:all": "npm run build:client && npm run dev",
+    "lint": "./node_modules/.bin/eslint ./server",
+    "lint:fix": "./node_modules/.bin/eslint ./server --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fack2/Hebron-must-see.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fack2/Hebron-must-see/issues"
+  },
+  "homepage": "https://github.com/fack2/Hebron-must-see#readme",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {}
+}
