@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))
 app.use(express.json())
 app.use(express.urlencoded())
-app.use(router)
+app.use('/api', router)
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
