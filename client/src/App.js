@@ -1,8 +1,8 @@
 import React from 'react'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import Start from './components/Start'
 import './App.css'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 const App = () => {
 	return (
