@@ -32,5 +32,9 @@
     "express": "^4.17.1",
     "nodemon": "^1.19.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "env2": "^2.2.2",
+    "fs": "0.0.1-security",
+    "pg": "^7.12.1"
+  }
 }
