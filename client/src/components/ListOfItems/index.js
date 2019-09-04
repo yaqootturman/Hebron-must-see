@@ -3,20 +3,21 @@ import App from "../../App"
 import "./style.css"
 import OnePlace from "../OnePlaces"
 import { Route, Link } from "react-router-dom"
+import Places from "../Places"
 
 const onePlace = ({ match }) => <p>{match.params.id}</p>
 
 class ListOfItems extends Component {
-    state = {
-        places: [
-            { country: "hebron", id: 1 },
-            { country: "palestine", id: 2 },
-            { country: "Jerusalem", id: 3 }
-        ]
-    }
+    // state = {
+    //     places: [
+    //         { country: "hebron", id: 1 },
+    //         { country: "palestine", id: 2 },
+    //         { country: "Jerusalem", id: 3 }
+    //     ]
+    // }
 
     places = () => {
-        this.state.places.map(place => {
+        this.props.ListOfItems.map(place => {
             return place
         })
     }
@@ -26,27 +27,33 @@ class ListOfItems extends Component {
     }
 
     render() {
-        const { url } = this.props.match
+        console.log("props value value", this.props.listOfItems[0])
         return (
             <div>
                 <h1>hello</h1>
-                <ul className="grid">
-                    {this.state.places.map(place => (
-                        <li className="card">
-                            <Link to={`/onePlace/:${place.id}`}>
-                                {place.country}
+                {console.log("props value", this.props.listOfItems)}
+                {
+                    <ul className="placesContainer ">
+                        {this.props.listOfItems.map(place => (
+                            <Link to={`/place/:${place.id}`}>
+                                <li className="listCards">
+                                    {" "}
+                                    <div>
+                                        <h3>{place.name}</h3>
+                                        <img
+                                            src={place.image1}
+                                            alt="not loaded"
+                                            class="placeImage1"
+                                        />
+                                    </div>
+                                </li>
                             </Link>
-                        </li>
-                    ))}
-                </ul>
+                        ))}
+                    </ul>
+                }
+
                 <Route path="/onePlace/:id" component={OnePlace} />
             </div>
-            //     <li className="card">
-            //         {this.state.places.map(place => {
-            //             return place
-            //         })}
-            //         <h1>{this.places}</h1>
-            //     </li>
         )
     }
 }
