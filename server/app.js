@@ -9,6 +9,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api', router)
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
 })
 module.exports = app
