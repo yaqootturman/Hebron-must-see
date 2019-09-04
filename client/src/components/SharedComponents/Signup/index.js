@@ -16,8 +16,12 @@ class Signup extends Component {
     })
   }
 
-  toggleDisplayBio = () => {
-    this.setState({ displayBio: !this.state.displayBio })
+  ShowDisplayBio = () => {
+    this.setState({ displayBio: true })
+  }
+
+  lessDisplayBio = () => {
+    this.setState({ displayBio: false })
   }
 
   validateForm = () => {
@@ -44,6 +48,7 @@ class Signup extends Component {
             required
           />
           <br />
+
           <input
             type="email"
             name="email"
@@ -53,6 +58,7 @@ class Signup extends Component {
             required
           />
           <br />
+
           <input
             type="password"
             name="password"
@@ -74,8 +80,10 @@ class Signup extends Component {
 
           <div className="container">
             <fieldset>
-              <button onClick={this.toggleDisplayBio}>Guide</button>
-              <button onClick={this.toggleDisplayBio}>Tourist</button>
+              <p>If you signup as a guide</p>
+              <p> please press guide button and fill the other section</p>
+              <button onClick={this.ShowDisplayBio}>Guide</button>
+              <button onClick={this.lessDisplayBio}>Tourist</button>
             </fieldset>
           </div>
 
