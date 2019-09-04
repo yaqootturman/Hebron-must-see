@@ -1,10 +1,13 @@
 import React, { Component } from "react"
+import axios from "axios"
 import "./style.css"
+
 class Login extends Component {
   state = {
+    data: [],
     email: "",
     password: "",
-    status: "false"
+    token: ""
   }
 
   handelChange = event => {
@@ -12,9 +15,25 @@ class Login extends Component {
     this.setState({ [event.target.name]: value })
   }
 
+  componentDidMount() {}
+
+  submit = event => {
+    axios
+      .post(`/api/login`, {
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        this.setState({ data: data })
+      })
+    event.preventDefault()
+  }
   render() {
     return (
-      <form onSubmit={this.submit}>
+      <form>
         <label htmlFor="email"></label>
         <input
           placeholder="Email"
@@ -35,12 +54,11 @@ class Login extends Component {
           onChange={this.handelChange}
         />
         <br />
-        <button id="login" type="submit" value="Submit">
+        <button id="login" type="submit" value="Submit" onClick={this.submit}>
           Login
         </button>
       </form>
     )
   }
 }
-
 export default Login

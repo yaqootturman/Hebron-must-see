@@ -33,7 +33,11 @@
 		"nodemon": "^1.19.1"
 	},
 	"dependencies": {
+		"alert-node": "^2.0.0",
+		"axios": "^0.19.0",
+		"bcrypt": "^3.0.6",
 		"env2": "^2.2.2",
+		"jsonwebtoken": "^8.5.1",
 		"pg": "^7.12.1"
 	}
 }
