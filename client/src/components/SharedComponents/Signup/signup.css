@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+}
+
+button.signup {
+  border-radius: 20px;
+  padding: 2%;
+  margin-top: 3%;
+  width: 20%;
+  font-size: 130%;
+  margin-left: -12%;
+}
+
+input {
+  border-radius: 20px;
+  height: 30px;
+  padding: 2%;
+  font-size: 153%;
+  margin-bottom: 4%;
+}
+.container {
+  display: inline-block;
+}
+
+fieldset {
+  margin-bottom: 9%;
+}
