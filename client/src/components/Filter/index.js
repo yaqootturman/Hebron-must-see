@@ -1,0 +1,14 @@
+import React from 'react'
+import './style.css'
+
+const Filter = ({ filterList, updateClickedFilter }) => {
+	return (
+		<React.Fragment>
+			{filterList.map((filterType) => {
+				return <button onClick={() => updateClickedFilter(filterType)}>{filterType}</button>
+			})}
+		</React.Fragment>
+	)
+}
+
+export default Filter
