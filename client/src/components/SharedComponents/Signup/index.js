@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import './signup.css'
+import axios from 'axios'
 
 class Signup extends Component {
   state = {
     name: '',
     email: '',
     password: '',
-    confirm_password: '',
+    confirmPassword: '',
     displayBio: false
   }
-
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -29,8 +29,19 @@ class Signup extends Component {
       this.state.name.length > 2 &&
       this.state.email.length > 6 &&
       this.state.password.length > 3 &&
-      this.state.password === this.state.confirm_password
+      this.state.password === this.state.confirmPassword
     )
+  }
+
+  pressButton = event => {
+    const { email, name, password } = this.state
+    axios
+      .post('/api/signup', {
+        name: name,
+        email: email,
+        password: password
+      })
+      .then(result => console.log(result.data, 'ax'))
   }
 
   render() {
@@ -70,10 +81,10 @@ class Signup extends Component {
           <br />
           <input
             type="password"
-            name="confirm_password"
+            name="confirmPassword"
             onChange={this.onChange}
-            placeholder="confirm_password"
-            value={this.state.confirm_password}
+            placeholder="confirm your password"
+            value={this.state.confirmPassword}
             required
           />
           <br />
@@ -124,6 +135,7 @@ class Signup extends Component {
             className="signup"
             type="submit"
             disabled={!this.validateForm()}
+            onClick={this.pressButton}
           >
             Signup
           </button>
