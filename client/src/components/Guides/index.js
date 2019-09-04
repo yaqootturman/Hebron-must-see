@@ -1,8 +1,7 @@
 import React from 'react'
 import Filter from '../Filter'
-import './style.css'
 
-class Places extends React.Component {
+class Guides extends React.Component {
 	state = {
 		listOfItems: [],
 		filteredItems: [],
@@ -14,11 +13,11 @@ class Places extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<h3>Places</h3>
+				<h3>Guides</h3>
 				<fieldset className="filter">
 					<legend>Filter</legend>
 					<Filter
-						filterList={[ 'Cultural', 'Religious', 'Historical', 'Entertainment' ]}
+						filterList={[ 'English', 'Italian', 'French' ]}
 						updateClickedFilter={this.updateClickedFilter}
 					/>
 				</fieldset>
@@ -27,4 +26,4 @@ class Places extends React.Component {
 	}
 }
 
-export default Places
+export default Guides
