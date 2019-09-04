@@ -1,4 +1,4 @@
-const router = require('./controllers/index')
+const router = require('./controllers')
 const express = require('express')
 const path = require('path')
 
