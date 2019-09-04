@@ -70,13 +70,12 @@ class Signup extends Component {
             value={this.state.confirm_password}
             required
           />
-
           <br />
 
           <div className="container">
             <fieldset>
               <button onClick={this.toggleDisplayBio}>Guide</button>
-              <button>Tourist</button>
+              <button onClick={this.toggleDisplayBio}>Tourist</button>
             </fieldset>
           </div>
 
