@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import Filter from '../Filter'
 import './style.css'
 
@@ -7,6 +8,9 @@ class Places extends React.Component {
 		listOfItems: [],
 		filteredItems: [],
 		clickedFilter: ''
+	}
+	componentDidMount() {
+		axios.get('/api/places').then((result) => console.log(result.data, 'ax'))
 	}
 	updateClickedFilter = (clickedFilter) => {
 		this.setState({ clickedFilter })
