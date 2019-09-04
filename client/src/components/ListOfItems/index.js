@@ -35,7 +35,7 @@ class ListOfItems extends Component {
                 {
                     <ul className="placesContainer ">
                         {this.props.listOfItems.map(place => (
-                            <Link to={`/place/:${place.id}`}>
+                            <Link to={`/places/:${place.id}`}>
                                 <li className="listCards">
                                     {" "}
                                     <div>
