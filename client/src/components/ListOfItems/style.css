@@ -5,6 +5,11 @@
         0 8px 16px hsla(220, 10%, 30%, 0.2);
     padding: 1rem;
     background-color: #fff;
+    /* position: absolute; */
+    /* width: 108px; */
+    /* height: 104px; */
+    left: 47px;
+    top: 293px;
 }
 
 .placesContainer {
@@ -24,4 +29,21 @@
 
 h3 {
     height: 45px;
+}
+
+ul {
+    list-style-type: none;
+}
+.guideName {
+    height: ;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-decoration-line: underline;
+
+    color: #000000;
+
+    border-radius: 12px;
 }

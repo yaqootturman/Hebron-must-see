@@ -18,20 +18,29 @@ class ListOfItems extends Component {
                             <Link to={`/${type}/:${element.id}`}>
                                 <li className="listCards">
                                     <div>
-                                        <h3>{element.name}</h3>
-                                        {console.log(type)}
                                         {type === "places" ? (
-                                            <img
-                                                src={element.image1}
-                                                alt="not loaded"
-                                                class="placeImage1"
-                                            />
+                                            <div>
+                                                <h3>{element.name}</h3>
+                                                <img
+                                                    src={element.image1}
+                                                    alt="not loaded"
+                                                    class="placeImage1"
+                                                />
+                                            </div>
                                         ) : (
-                                            <img
-                                                src={element.photo}
-                                                alt="not loaded"
-                                                class="placeImage1"
-                                            />
+                                            <div>
+                                                <img
+                                                    src={element.photo}
+                                                    alt="not loaded"
+                                                    class="placeImage1"
+                                                />
+                                                <h3 class="guideName">
+                                                    {element.name}
+                                                </h3>
+                                                <h3 class="guidePhone">
+                                                    {element.phone}
+                                                </h3>
+                                            </div>
                                         )}
                                     </div>
                                 </li>

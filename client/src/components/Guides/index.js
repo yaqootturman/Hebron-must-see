@@ -13,7 +13,6 @@ class Guides extends React.Component {
     componentDidMount() {
         axios.get("/api/guides").then(result => {
             this.setState({ listOfItems: result.data })
-            console.log("users information", result.data)
         })
     }
     updateClickedFilter = clickedFilter => {
