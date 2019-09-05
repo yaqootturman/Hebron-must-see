@@ -6,10 +6,13 @@ exports.isAuthenticated = (req, res, next) => {
     const { token } = req.cookies
     return verify(token, SECRET, (err, decoded) => {
       if (err) {
-        return res.status(401).json({
-          status: 'error',
-          message: 'unauthorised'
-        })
+        return res
+          .status(401)
+          .clearCookie('token')
+          .json({
+            status: 'error',
+            message: 'unauthorised'
+          })
       }
       return next()
     })
