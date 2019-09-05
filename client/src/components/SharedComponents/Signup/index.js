@@ -15,7 +15,8 @@ class Signup extends Component {
     age: '',
     description: '',
     phone: '',
-    review: ''
+    reviews: '',
+    userType: 'user'
   }
   onChange = event => {
     this.setState({
@@ -24,7 +25,7 @@ class Signup extends Component {
   }
 
   ShowDisplayBio = () => {
-    this.setState({ displayBio: true })
+    this.setState({ displayBio: true, userType: 'guide' })
   }
 
   displayShorterBio = () => {
@@ -51,20 +52,22 @@ class Signup extends Component {
       age,
       phone,
       description,
-      reviews
+      reviews,
+      userType
     } = this.state
     axios
       .post('/api/signup', {
-        name: name,
-        email: email,
-        password: password,
-        type: type,
-        photo: photo,
-        description: description,
-        availability: availability,
-        phone: phone,
-        age: age,
-        reviews: reviews
+        name,
+        email,
+        password,
+        type,
+        photo,
+        description,
+        availability,
+        phone,
+        age,
+        reviews,
+        userType
       })
       .then(result => console.log(result.data, 'ax'))
   }

@@ -7,19 +7,27 @@ button.signup {
   padding: 2%;
   margin-top: 3%;
   width: 20%;
-  font-size: 130%;
+  font-size: small;
   margin-left: -3%;
+}
+
+button {
+  border-radius: 15px;
+  margin-left: 9.5em;
+  margin-bottom: 0.5em;
 }
 
 input {
   border-radius: 20px;
   height: 30px;
-  padding: 2%;
-  font-size: 153%;
-  margin-bottom: 4%;
+  padding: 5px;
+  font-size: x-large;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
+
 .container {
-  display: inline-block;
+  margin-left: 10px;
 }
 
 fieldset {
