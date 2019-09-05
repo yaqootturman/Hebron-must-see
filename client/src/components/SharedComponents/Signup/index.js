@@ -51,7 +51,7 @@ class Signup extends Component {
       age,
       phone,
       description,
-      review
+      reviews
     } = this.state
     axios
       .post('/api/signup', {
@@ -59,12 +59,12 @@ class Signup extends Component {
         email: email,
         password: password,
         type: type,
-        availability: availability,
         photo: photo,
-        age: age,
-        phone: phone,
         description: description,
-        review: review
+        availability: availability,
+        phone: phone,
+        age: age,
+        reviews: reviews
       })
       .then(result => console.log(result.data, 'ax'))
   }
@@ -133,30 +133,30 @@ class Signup extends Component {
 
               <input
                 type="text"
-                name="availability"
-                onChange={this.onChange}
-                value={this.state.availability}
-                placeholder="availability"
-                required
-              />
-
-              <input
-                type="text"
                 name="photo"
                 onChange={this.onChange}
                 value={this.state.photo}
                 placeholder="photo"
                 required
               />
+
               <input
                 type="text"
-                name="age"
+                name="description"
                 onChange={this.onChange}
-                value={this.state.age}
-                placeholder="age"
+                value={this.state.description}
+                placeholder="description"
                 required
               />
 
+              <input
+                type="text"
+                name="availability"
+                onChange={this.onChange}
+                value={this.state.availability}
+                placeholder="availability"
+                required
+              />
               <input
                 type="text"
                 name="phone"
@@ -168,10 +168,10 @@ class Signup extends Component {
 
               <input
                 type="text"
-                name="description"
+                name="age"
                 onChange={this.onChange}
-                value={this.state.description}
-                placeholder="description"
+                value={this.state.age}
+                placeholder="age"
                 required
               />
 

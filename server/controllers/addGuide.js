@@ -7,7 +7,8 @@ exports.Guideadd = (request, response) => {
     availability,
     phone,
     age,
-    review
+    reviews,
+    name
   } = request.body
 
   addGuide(
@@ -17,7 +18,8 @@ exports.Guideadd = (request, response) => {
     availability,
     phone,
     age,
-    review,
+    reviews,
+    name,
     (err, res) => {
       if (err) {
         console.log(err)
