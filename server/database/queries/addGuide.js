@@ -8,17 +8,29 @@ const addGuide = (
   age,
   reviews,
   name,
-
-  cb
+  email,
+  hash
 ) => {
-  dbConnection.query(
-    'INSERT INTO guides (type , photo , description , availability , phone , age , reviews , user_id) values ($1,$2,$3,$4,$5,$6,$7,(select user_id from users where name=$8))',
-    [type, photo, description, availability, phone, age, reviews, name],
-    (err, res) => {
-      if (err) {
-        console.log(err)
-      } else cb(null, { msg: 'success' })
-    }
-  )
+  return dbConnection
+    .query(
+      `with newrecord(id) as (INSERT INTO users 
+        (name,email,password) values ($8,$9,$10) returning user_id)
+        INSERT INTO guides (type , photo , description , availability , phone , 
+          age , reviews , user_id) values
+           ($1,$2,$3,$4,$5,$6,$7,(select id from newrecord))`,
+      [
+        type,
+        photo,
+        description,
+        availability,
+        phone,
+        age,
+        reviews,
+        name,
+        email,
+        hash
+      ]
+    )
+    .then(res => res.rows)
 }
 module.exports = addGuide
