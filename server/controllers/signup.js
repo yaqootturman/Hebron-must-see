@@ -1,5 +1,5 @@
-const addUser = require('../database/queries/addUser')
 const bcrypt = require('bcrypt')
+const addUser = require('../database/queries/addUser')
 
 exports.signUp = (request, response) => {
   const { email, name, password } = request.body
