@@ -10,8 +10,9 @@ class Places extends React.Component {
         filteredItems: [],
         clickedFilter: ""
     }
+
     componentDidMount() {
-        axios.get("/api/places").then(result => {
+        axios.get(`/api/places`).then(result => {
             this.setState({ listOfItems: result.data })
             console.log(result.data)
         })
@@ -35,7 +36,11 @@ class Places extends React.Component {
                         updateClickedFilter={this.updateClickedFilter}
                     />
                 </fieldset>
-                <ListOfItems listOfItems={this.state.listOfItems} />
+                <ListOfItems
+                    type={"places"}
+                    listOfItems={this.state.listOfItems}
+                    clicked={this.props.clicked}
+                />
             </React.Fragment>
         )
     }
