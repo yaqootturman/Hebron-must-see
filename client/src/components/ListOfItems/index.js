@@ -31,7 +31,7 @@ class ListOfItems extends Component {
                         <img
                           src={element.photo}
                           alt="not loaded"
-                          class="placeImage1"
+                          class="guideImage"
                         />
                         <h3 class="guideName">{element.name}</h3>
                         <h3 class="guidePhone">{element.phone}</h3>
