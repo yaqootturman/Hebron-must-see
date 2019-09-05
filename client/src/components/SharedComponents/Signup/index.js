@@ -8,7 +8,14 @@ class Signup extends Component {
     email: '',
     password: '',
     confirmPassword: '',
-    displayBio: false
+    displayBio: false,
+    type: '',
+    availability: '',
+    photo: '',
+    age: '',
+    description: '',
+    phone: '',
+    review: ''
   }
   onChange = event => {
     this.setState({
@@ -20,26 +27,44 @@ class Signup extends Component {
     this.setState({ displayBio: true })
   }
 
-  lessDisplayBio = () => {
+  displayShorterBio = () => {
     this.setState({ displayBio: false })
   }
 
   validateForm = () => {
     return (
-      this.state.name.length > 2 &&
+      this.state.name.length > 1 &&
       this.state.email.length > 6 &&
-      this.state.password.length > 3 &&
+      this.state.password.length > 6 &&
       this.state.password === this.state.confirmPassword
     )
   }
 
   pressButton = event => {
-    const { email, name, password } = this.state
+    const {
+      email,
+      name,
+      password,
+      type,
+      availability,
+      photo,
+      age,
+      phone,
+      description,
+      review
+    } = this.state
     axios
       .post('/api/signup', {
         name: name,
         email: email,
-        password: password
+        password: password,
+        type: type,
+        availability: availability,
+        photo: photo,
+        age: age,
+        phone: phone,
+        description: description,
+        review: review
       })
       .then(result => console.log(result.data, 'ax'))
   }
@@ -58,7 +83,6 @@ class Signup extends Component {
             value={this.state.name}
             required
           />
-          <br />
 
           <input
             type="email"
@@ -68,7 +92,6 @@ class Signup extends Component {
             value={this.state.email}
             required
           />
-          <br />
 
           <input
             type="password"
@@ -78,7 +101,7 @@ class Signup extends Component {
             value={this.state.password}
             required
           />
-          <br />
+
           <input
             type="password"
             name="confirmPassword"
@@ -87,19 +110,44 @@ class Signup extends Component {
             value={this.state.confirmPassword}
             required
           />
-          <br />
 
           <div className="container">
             <fieldset>
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
               <button onClick={this.ShowDisplayBio}>Guide</button>
-              <button onClick={this.lessDisplayBio}>Tourist</button>
+              <button onClick={this.displayShorterBio}>Tourist</button>
             </fieldset>
           </div>
 
           {this.state.displayBio ? (
             <div className="extra">
+              <input
+                type="text"
+                name="type"
+                onChange={this.onChange}
+                value={this.state.type}
+                placeholder="type"
+                required
+              />
+
+              <input
+                type="text"
+                name="availability"
+                onChange={this.onChange}
+                value={this.state.availability}
+                placeholder="availability"
+                required
+              />
+
+              <input
+                type="text"
+                name="photo"
+                onChange={this.onChange}
+                value={this.state.photo}
+                placeholder="photo"
+                required
+              />
               <input
                 type="text"
                 name="age"
@@ -126,17 +174,21 @@ class Signup extends Component {
                 placeholder="description"
                 required
               />
+
+              <input
+                type="review"
+                name="review"
+                onChange={this.onChange}
+                value={this.state.review}
+                placeholder="review"
+                required
+              />
             </div>
           ) : (
             <div></div>
           )}
           <br />
-          <button
-            className="signup"
-            type="submit"
-            disabled={!this.validateForm()}
-            onClick={this.pressButton}
-          >
+          <button className="signup" type="submit" onClick={this.pressButton}>
             Signup
           </button>
         </form>
