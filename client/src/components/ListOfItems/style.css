@@ -34,16 +34,3 @@ h3 {
 ul {
     list-style-type: none;
 }
-.guideName {
-    height: ;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    text-decoration-line: underline;
-
-    color: #000000;
-
-    border-radius: 12px;
-}

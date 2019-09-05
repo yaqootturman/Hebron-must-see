@@ -3,7 +3,6 @@ import App from "../../App"
 import "./style.css"
 import OnePlace from "../OnePlaces"
 import { Route, Link } from "react-router-dom"
-import Places from "../Places"
 
 class ListOfItems extends Component {
     render() {

@@ -14,7 +14,6 @@ class Places extends React.Component {
     componentDidMount() {
         axios.get(`/api/places`).then(result => {
             this.setState({ listOfItems: result.data })
-            console.log(result.data)
         })
     }
     updateClickedFilter = clickedFilter => {
