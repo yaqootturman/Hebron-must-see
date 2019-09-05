@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const { sign } = require('jsonwebtoken')
 const { getPassword } = require('../database/queries/getPassword')
 
-const SECRET = process.env.SECRET
+const { SECRET } = process.env
 
 const createToken = (email, secret) => {
   return sign({ email }, secret)
