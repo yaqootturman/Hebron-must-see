@@ -33,7 +33,6 @@ class Guides extends React.Component {
                 <ListOfItems
                     type={"guides"}
                     listOfItems={this.state.listOfItems}
-                    clicked={this.props.clicked}
                 />
             </React.Fragment>
         )

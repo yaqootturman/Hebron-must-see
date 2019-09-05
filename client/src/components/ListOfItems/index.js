@@ -5,8 +5,6 @@ import OnePlace from "../OnePlaces"
 import { Route, Link } from "react-router-dom"
 import Places from "../Places"
 
-const onePlace = ({ match }) => <p>{match.params.id}</p>
-
 class ListOfItems extends Component {
     render() {
         const { type } = this.props

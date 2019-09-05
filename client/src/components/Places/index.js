@@ -39,7 +39,6 @@ class Places extends React.Component {
                 <ListOfItems
                     type={"places"}
                     listOfItems={this.state.listOfItems}
-                    clicked={this.props.clicked}
                 />
             </React.Fragment>
         )
