@@ -6,15 +6,19 @@ import Guides from "./components/Guides"
 import "./App.css"
 
 const App = () => {
-    return (
-        <Router>
-            <Switch>
-                <Route exact path="/" component={Start} />
-                <Route exact path="/places" component={Places} />
-                <Route exact path="/guides" component={Guides} />
-            </Switch>
-        </Router>
-    )
+  return (
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Start} />
+
+          <Route exact path="/places" component={Places} />
+
+          <Route exact path="/guides" component={Guides} />
+        </Switch>
+      </Router>
+    </div>
+  )
 }
 
 export default App
