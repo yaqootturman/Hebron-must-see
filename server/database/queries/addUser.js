@@ -1,4 +1,4 @@
-const dbConnection = require('../db_connection')
+const dbConnection = require('../dbConnection')
 const addUser = (name, email, password, cb) => {
   dbConnection.query(
     'INSERT INTO users (name,email,password) values ($1,$2,$3)',
