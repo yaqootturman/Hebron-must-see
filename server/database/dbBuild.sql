@@ -39,8 +39,8 @@ create table guides
   age text not null,
   reviews text not null,
   user_id INTEGER,
-    FOREIGN KEY
-    (user_id) REFERENCES users (user_id)
+  FOREIGN KEY
+  (user_id) REFERENCES users (user_id)
 );
 
 
