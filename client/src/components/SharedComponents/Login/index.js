@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import axios from "axios"
-import "./style.css"
+import React, { Component } from 'react'
+import axios from 'axios'
+import './style.css'
 
 class Login extends Component {
   state = {
     data: [],
-    email: "",
-    password: "",
-    token: ""
+    email: '',
+    password: '',
+    token: ''
   }
 
   handelChange = event => {
