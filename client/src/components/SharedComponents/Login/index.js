@@ -4,56 +4,51 @@ import './style.css'
 
 class Login extends Component {
   state = {
-    data: [],
     email: '',
-    password: '',
-    token: ''
+    password: ''
   }
 
-  handelChange = event => {
-    const value = event.target.value
+  handleChange = event => {
+    const { value } = event.target
     this.setState({ [event.target.name]: value })
   }
 
-  componentDidMount() {}
-
   submit = event => {
+    event.preventDefault()
+    const { email, password } = this.state
     axios
       .post(`/api/login`, {
-        email: this.state.email,
-        password: this.state.password
+        email,
+        password
       })
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        this.setState({ data: data })
-      })
-    event.preventDefault()
+      .then(res => console.log('the result', res))
+      .catch(err => console.log(err))
   }
+
   render() {
+    const { email, password } = this.state
     return (
       <form>
-        <label htmlFor="email"></label>
-        <input
-          placeholder="Email"
-          type="email"
-          id="email"
-          name="email"
-          value={this.state.email}
-          onChange={this.handelChange}
-        />
-        <br />
-        <label htmlFor="password"></label>
-        <input
-          placeholder="Password"
-          type="password"
-          id="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handelChange}
-        />
-        <br />
+        <label htmlFor="email">
+          <input
+            placeholder="Email"
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label htmlFor="password">
+          <input
+            placeholder="Password"
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+          />
+        </label>
         <button id="login" type="submit" value="Submit" onClick={this.submit}>
           Login
         </button>

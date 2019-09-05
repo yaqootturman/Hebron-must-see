@@ -1,13 +1,12 @@
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const { sign, verify } = require('jsonwebtoken')
 const cookie = require('cookie')
 const alert = require('alert-node')
 const getPassword = require('../database/queries/getPassword')
 
-const { sign, verify } = require('jsonwebtoken')
-const SECRT = process.env.SECRT
+const SECRET = process.env.SECRET
 
-const postLogin = (req, res) => {
+exports.postLogin = (req, res) => {
   const { email, password } = req.body
   getPassword(email, (err, result) => {
     console.log('the result is ', result)
@@ -28,9 +27,8 @@ const postLogin = (req, res) => {
               {
                 Email: email
               },
-              SECRT
+              SECRET
             )
-            console.log('helo')
             res.cookie('token', token, { httpOnly: true })
             res.json({ login: true })
           }
@@ -39,4 +37,3 @@ const postLogin = (req, res) => {
     }
   })
 }
-module.exports = postLogin

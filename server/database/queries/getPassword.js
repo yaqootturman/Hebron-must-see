@@ -1,7 +1,6 @@
-const databaseConnection = require("../db_connection.js")
+const databaseConnection = require('../db_connection.js')
 const getPassword = (email, cb) => {
-  console.log(email)
-  const query = "SELECT password FROM users where email=$1"
+  const query = 'SELECT password ,user_id FROM users where email=$1'
   databaseConnection.query(query, [email], (err, res) => {
     if (err) {
       cb(err)
