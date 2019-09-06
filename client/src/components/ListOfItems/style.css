@@ -1,0 +1,46 @@
+.listCards {
+  margin: 5px;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 6px hsla(220, 10%, 30%, 0.2),
+    0 8px 16px hsla(220, 10%, 30%, 0.2);
+  padding: 1rem;
+  background-color: #fff;
+  /* position: absolute; */
+  /* width: 108px; */
+  /* height: 104px; */
+  left: 47px;
+  top: 293px;
+}
+
+.placesContainer {
+  margin-left: -30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.25rem;
+  margin-top: 1rem;
+  grid-gap: 1.5rem;
+  align-content: start;
+}
+
+.placeImage1 {
+  width: 150px;
+  height: 100px;
+}
+
+h3 {
+  height: 45px;
+}
+
+ul {
+  list-style-type: none;
+}
+.guideName {
+  text-align: center;
+  height: 10px;
+}
+
+.guideImage {
+  text-align: center;
+  width: 120px;
+  height: 100px;
+}

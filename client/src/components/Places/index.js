@@ -1,18 +1,22 @@
-import React from 'react'
-import axios from 'axios'
-import Filter from '../Filter'
-import './style.css'
+import React from "react"
+import axios from "axios"
+import Filter from "../Filter"
+import ListOfItems from "../ListOfItems"
+import "./style.css"
 
 class Places extends React.Component {
   state = {
     listOfItems: [],
     filteredItems: [],
-    clickedFilter: ''
+    clickedFilter: ""
   }
+
   componentDidMount() {
-    axios.get('/api/places').then((result) => console.log(result.data, 'received data'))
+    axios.get(`/api/places`).then(result => {
+      this.setState({ listOfItems: result.data })
+    })
   }
-  updateClickedFilter = (clickedFilter) => {
+  updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
   }
   render() {
@@ -22,10 +26,16 @@ class Places extends React.Component {
         <fieldset className="filter">
           <legend>Filter</legend>
           <Filter
-            filterList={[ 'Cultural', 'Religious', 'Historical', 'Entertainment' ]}
+            filterList={[
+              "Cultural",
+              "Religious",
+              "Historical",
+              "Entertainment"
+            ]}
             updateClickedFilter={this.updateClickedFilter}
           />
         </fieldset>
+        <ListOfItems type={"places"} listOfItems={this.state.listOfItems} />
       </React.Fragment>
     )
   }
