@@ -15,7 +15,6 @@ class Signup extends Component {
     age: '',
     description: '',
     phone: '',
-    reviews: '',
     userType: 'user'
   }
   onChange = event => {
@@ -52,7 +51,6 @@ class Signup extends Component {
       age,
       phone,
       description,
-      reviews,
       userType
     } = this.state
     axios
@@ -66,7 +64,6 @@ class Signup extends Component {
         availability,
         phone,
         age,
-        reviews,
         userType
       })
       .then(result => console.log(result.data, 'ax'))
@@ -175,15 +172,6 @@ class Signup extends Component {
                 onChange={this.onChange}
                 value={this.state.age}
                 placeholder="age"
-                required
-              />
-
-              <input
-                type="review"
-                name="review"
-                onChange={this.onChange}
-                value={this.state.review}
-                placeholder="review"
                 required
               />
             </div>

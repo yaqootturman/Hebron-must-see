@@ -1,35 +1,93 @@
 body {
   text-align: center;
 }
+h1 {
+  margin-left: -7%;
+  color: cornflowerblue;
+}
 
 button.signup {
   border-radius: 20px;
-  padding: 2%;
-  margin-top: 3%;
-  width: 20%;
-  font-size: small;
-  margin-left: -3%;
+  margin-top: 3px;
+  margin-left: 0px;
+  width: 91px;
+  height: 50px;
+  font-size: large;
 }
 
 button {
   border-radius: 15px;
-  margin-left: 9.5em;
+  margin-left: 0.5em;
   margin-bottom: 0.5em;
+  font-size: medium;
+  width: 70px;
+  color: white;
+  background-color: cornflowerblue;
+}
+button:hover {
+  background-color: rgb(170, 69, 69);
 }
 
 input {
-  border-radius: 20px;
+  border-radius: 17px;
   height: 30px;
   padding: 5px;
   font-size: x-large;
   margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-.container {
-  margin-left: 10px;
+  table-layout: auto;
+  margin-top: 10px;
+  margin-left: -16px;
 }
 
 fieldset {
-  margin-bottom: 9%;
+  display: block;
+  margin-left: 34px;
+  width: 70%;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    text-align: center;
+  }
+  input {
+    border-radius: 17px;
+    height: 30px;
+    padding: 5px;
+    font-size: x-large;
+    margin-bottom: 10px;
+    table-layout: auto;
+    margin-top: 10px;
+    margin-left: -16px;
+    width: 700px;
+  }
+
+  button.signup {
+    border-radius: 20px;
+    padding: 24px;
+    height: 69px;
+    margin-top: 8px;
+    width: 172px;
+    font-size: large;
+    margin-left: 21px;
+  }
+
+  fieldset {
+    display: block;
+    margin-left: 181px;
+    width: 70%;
+  }
+
+  button {
+    border-radius: 15px;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: large;
+    width: 75px;
+    height: 50px;
+    color: white;
+    background-color: cornflowerblue;
+  }
+  button:hover {
+    background-color: rgb(170, 69, 69);
+  }
 }
