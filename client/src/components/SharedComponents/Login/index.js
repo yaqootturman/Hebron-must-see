@@ -21,7 +21,14 @@ class Login extends Component {
         email,
         password
       })
-      .then(res => console.log('the result', res))
+      .then(res => {
+        console.log('the result', res)
+        if (res.data.status === 'failed') {
+          alert(res.data.message)
+        } else {
+          alert('success connection')
+        }
+      })
       .catch(err => console.log(err))
   }
 
@@ -49,7 +56,7 @@ class Login extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit" value="Submit" onClick={this.submit}>
+        <button id="login" type="submit" value="Submit" onClick={this.submit}>
           Login
         </button>
       </form>
