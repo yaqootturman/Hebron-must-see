@@ -27,7 +27,9 @@ exports.login = (req, res) => {
           })
           .catch(err => console.log(err))
       } else {
-        res.status(401).json({ message: 'incorrect email or password' })
+        res
+          .status(200)
+          .json({ message: 'incorrect email or password', status: 'failed' })
       }
     }
   })
