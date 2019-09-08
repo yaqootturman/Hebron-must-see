@@ -21,29 +21,31 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <>
         <NavBar />
-        <Switch>
-          <Route exact path="/" component={Start} />
-          <Route
-            exact
-            path="/places"
-            render={() => <Places listOfItems={this.state.listOfItems} />}
-          />
-          <Route exact path="/guides" component={Guides} />
-          <Route
-            exact
-            path="/places/:id"
-            render={props => (
-              <OnePlace
-                title={`Props through render`}
-                listOfItems={this.state.listOfItems}
-                {...props}
-              />
-            )}
-          />
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Start} />
+            <Route
+              exact
+              path="/places"
+              render={() => <Places listOfItems={this.state.listOfItems} />}
+            />
+            <Route exact path="/guides" component={Guides} />
+            <Route
+              exact
+              path="/places/:id"
+              render={props => (
+                <OnePlace
+                  title={`Props through render`}
+                  listOfItems={this.state.listOfItems}
+                  {...props}
+                />
+              )}
+            />
+          </Switch>
+        </Router>
+      </>
     )
   }
 }
