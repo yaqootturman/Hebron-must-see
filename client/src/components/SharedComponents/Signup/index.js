@@ -79,7 +79,7 @@ class Signup extends Component {
             type="text"
             name="name"
             onChange={this.onChange}
-            placeholder="name..."
+            placeholder="Name..."
             value={this.state.name}
             required
           />
@@ -97,7 +97,7 @@ class Signup extends Component {
             type="password"
             name="password"
             onChange={this.onChange}
-            placeholder="password"
+            placeholder="Password..."
             value={this.state.password}
             required
           />
@@ -106,7 +106,7 @@ class Signup extends Component {
             type="password"
             name="confirmPassword"
             onChange={this.onChange}
-            placeholder="confirm your password"
+            placeholder="Confirm your password..."
             value={this.state.confirmPassword}
             required
           />
@@ -127,7 +127,7 @@ class Signup extends Component {
                 name="type"
                 onChange={this.onChange}
                 value={this.state.type}
-                placeholder="type"
+                placeholder="Language..."
                 required
               />
 
@@ -136,7 +136,7 @@ class Signup extends Component {
                 name="photo"
                 onChange={this.onChange}
                 value={this.state.photo}
-                placeholder="photo"
+                placeholder="Add your photo..."
                 required
               />
 
@@ -145,7 +145,7 @@ class Signup extends Component {
                 name="description"
                 onChange={this.onChange}
                 value={this.state.description}
-                placeholder="description"
+                placeholder="Description about yourself..."
                 required
               />
 
@@ -154,7 +154,7 @@ class Signup extends Component {
                 name="availability"
                 onChange={this.onChange}
                 value={this.state.availability}
-                placeholder="availability"
+                placeholder="Availability time..."
                 required
               />
               <input
@@ -162,7 +162,7 @@ class Signup extends Component {
                 name="phone"
                 onChange={this.onChange}
                 value={this.state.phone}
-                placeholder="phone number"
+                placeholder="Phone number..."
                 required
               />
 
@@ -171,7 +171,7 @@ class Signup extends Component {
                 name="age"
                 onChange={this.onChange}
                 value={this.state.age}
-                placeholder="age"
+                placeholder="Age..."
                 required
               />
             </div>

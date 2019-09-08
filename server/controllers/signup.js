@@ -2,8 +2,8 @@ const bcrypt = require('bcrypt')
 const addUser = require('../database/queries/addUser')
 const addGuide = require('../database/queries/addGuide')
 
-exports.signUp = (request, response, next) => {
-  const { email, name, password, userType } = request.body
+exports.signUp = (req, res, next) => {
+  const { name, email, password, userType } = req.body
 
   bcrypt.hash(password, 10, (err, hash) => {
     if (err) {
@@ -11,22 +11,15 @@ exports.signUp = (request, response, next) => {
     }
 
     if (userType === 'user') {
-      addUser(email, name, hash)
+      addUser(name, email, hash)
         .then(result => {
-          response.json(result)
+          res.json(result)
         })
         .catch(err => {
           next(err)
         })
     } else {
-      const {
-        type,
-        photo,
-        description,
-        availability,
-        phone,
-        age
-      } = request.body
+      const { type, photo, description, availability, phone, age } = req.body
 
       addGuide(
         type,
@@ -40,7 +33,7 @@ exports.signUp = (request, response, next) => {
         hash
       )
         .then(result => {
-          response.json(result)
+          res.json(result)
         })
         .catch(err => {
           next(err)
