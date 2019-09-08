@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import App from "../../App"
-import "./style.css"
-import OnePlace from "../OnePlaces"
-import { Route, Link } from "react-router-dom"
+import React, { Component } from 'react'
+import App from '../../App'
+import './style.css'
+import OnePlaces from '../OnePlaces'
+import { Route, Link } from 'react-router-dom'
 
 class ListOfItems extends Component {
   render() {
@@ -13,28 +13,20 @@ class ListOfItems extends Component {
         <h1>hello</h1>
         {
           <ul className="placesContainer ">
-            {this.props.listOfItems.map(element => (
+            {this.props.listOfItems.map((element) => (
               <Link to={`/${type}/:${element.id}`}>
                 <li className="listCards">
                   <div>
-                    {type === "places" ? (
+                    {type === 'places' ? (
                       <div>
                         <h3>{element.name}</h3>
-                        <img
-                          src={element.image1}
-                          alt="not loaded"
-                          class="placeImage1"
-                        />
+                        <img src={element.image1} alt="not loaded" className="placeImage1" />
                       </div>
                     ) : (
                       <div>
-                        <img
-                          src={element.photo}
-                          alt="not loaded"
-                          class="guideImage"
-                        />
-                        <h3 class="guideName">{element.name}</h3>
-                        <h3 class="guidePhone">{element.phone}</h3>
+                        <img src={element.photo} alt="not loaded" className="guideImage" />
+                        <h3 className="guideName">{element.name}</h3>
+                        <h3 className="guidePhone">{element.phone}</h3>
                       </div>
                     )}
                   </div>
@@ -44,7 +36,7 @@ class ListOfItems extends Component {
           </ul>
         }
 
-        <Route path="/onePlace/:id" component={OnePlace} />
+        <Route exact path="/places/:id" component={OnePlaces} />
       </div>
     )
   }
