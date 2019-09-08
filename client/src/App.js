@@ -13,37 +13,35 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/places`).then(result => {
-      this.setState({ listOfItems: result.data })
+    axios.get(`/api/places`).then(({ data }) => {
+      this.setState({ listOfItems: data })
     })
   }
 
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Start} />
-            <Route
-              exact
-              path="/places"
-              render={() => <Places listOfItems={this.state.listOfItems} />}
-            />
-            <Route exact path="/guides" component={Guides} />
-            <Route
-              exact
-              path="/places/:id"
-              render={props => (
-                <OnePlace
-                  title={`Props through render`}
-                  listOfItems={this.state.listOfItems}
-                  {...props}
-                />
-              )}
-            />
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Start} />
+          <Route
+            exact
+            path="/places"
+            render={() => <Places listOfItems={this.state.listOfItems} />}
+          />
+          <Route exact path="/guides" component={Guides} />
+          <Route
+            exact
+            path="/places/:id"
+            render={props => (
+              <OnePlace
+                title={`Props through render`}
+                listOfItems={this.state.listOfItems}
+                {...props}
+              />
+            )}
+          />
+        </Switch>
+      </Router>
     )
   }
 }
