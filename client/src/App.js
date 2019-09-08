@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
-import NavBar from './components/SharedComonents/navbar'
+import NavBar from './components/SharedComponents/navbar'
 import './App.css'
 
 const App = () => {
