@@ -4,9 +4,9 @@ import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
+import NavBar from './components/SharedComponents/navbar'
 import './App.css'
 import axios from 'axios'
-import NavBar from './components/SharedComponents/navbar'
 
 class App extends Component {
   state = {
