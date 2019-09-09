@@ -7,6 +7,6 @@ const { isAuthenticated } = require("../middleware/auth")
 
 router.get("/places", getPlaces, isAuthenticated)
 router.post("/login", login)
-// router.get("/guides", getGuides)
+router.get("/guides", getGuides)
 
 module.exports = router
