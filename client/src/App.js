@@ -7,6 +7,7 @@ import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
 import Login from './components/SharedComponents/Login'
 import NavBar from './components/SharedComponents/navbar'
+import arabicListWords from './components/arabicListWords/index'
 import './App.css'
 
 class App extends Component {
@@ -45,6 +46,11 @@ class App extends Component {
               )}
             />
             <Route exact path="/Login" component={Login} />
+            <Route
+              exact
+              path="/arabic-words"
+              component={arabicListWords}
+            ></Route>
           </Switch>
         </Router>
       </>
