@@ -1,22 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Start from './components/Start'
 import Places from './components/Places'
-import Login from './components/SharedComponents/Login'
 import Guides from './components/Guides'
-import validatedLoginForm from './components/SharedComponents/Login/validatedLoginForm'
+import OnePlace from './components/OnePlace'
+import Login from './components/SharedComponents/Login'
 import './App.css'
+import axios from 'axios'
 
-const App = () => (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Start} />
-      <Route exact path="/places" component={Places} />
-      <Route exact path="/guides" component={Guides} />
-      {/* <Route exact path="/Login" component={Login} /> */}
-      <Route exact path="/Login" component={validatedLoginForm} />
-    </Switch>
-  </Router>
-)
+class App extends Component {
+  state = {
+    listOfItems: []
+  }
+
+  componentDidMount() {
+    axios.get(`/api/places`).then(({ data }) => {
+      this.setState({ listOfItems: data })
+    })
+  }
+
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Start} />
+          <Route
+            exact
+            path="/places"
+            render={() => <Places listOfItems={this.state.listOfItems} />}
+          />
+          <Route exact path="/guides" component={Guides} />
+          <Route
+            exact
+            path="/places/:id"
+            render={props => (
+              <OnePlace
+                title={`Props through render`}
+                listOfItems={this.state.listOfItems}
+                {...props}
+              />
+            )}
+          />
+          <Route exact path="/Login" component={Login} />
+        </Switch>
+      </Router>
+    )
+  }
+}
 
 export default App
