@@ -6,16 +6,10 @@ import './style.css'
 
 class Places extends React.Component {
   state = {
-    listOfItems: [],
     filteredItems: [],
     clickedFilter: ''
   }
 
-  componentDidMount() {
-    axios.get(`/api/places`).then((result) => {
-      this.setState({ listOfItems: result.data })
-    })
-  }
   updateClickedFilter = (clickedFilter) => {
     this.setState({ clickedFilter })
   }
@@ -30,7 +24,7 @@ class Places extends React.Component {
             updateClickedFilter={this.updateClickedFilter}
           />
         </fieldset>
-        <ListOfItems type={'places'} listOfItems={this.state.listOfItems} />
+        <ListOfItems type={'places'} listOfItems={this.props.listOfItems} />
       </React.Fragment>
     )
   }
