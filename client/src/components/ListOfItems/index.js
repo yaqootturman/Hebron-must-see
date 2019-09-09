@@ -7,14 +7,17 @@ import { Route, Link } from "react-router-dom"
 class ListOfItems extends Component {
   render() {
     const { type } = this.props
+    {
+      console.log("list of items", this.props)
+    }
 
     return (
       <div>
         <h1>hello</h1>
         {
-          <ul classNameName="placesContainer ">
+          <ul className="placesContainer ">
             {this.props.listOfItems.map(element => (
-              <li classNameName="listCards">
+              <li className="listCards">
                 <div>
                   {type === "places" ? (
                     <Link to={`/${type}/${element.place_id}`}>

@@ -9,11 +9,11 @@ img {
 
 .placeInformation {
   background-color: #ffffff;
-  border: red solid 1px;
   width: 400px;
   position: absolute;
-  top: 274px;
+  top: 354px;
   border-radius: 30px;
+  text-align: left;
 }
 
 .placeName {
