@@ -12,7 +12,7 @@ class ListOfItems extends Component {
         {
           <ul className="ItemsContainer ">
             {this.props.listOfItems.map((element) => (
-              <li className="listCards">
+              <li key={element.id} className="listCards">
                 <div>
                   {type === 'places' ? (
                     <Link to={`/${type}/${element.place_id}`}>

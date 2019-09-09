@@ -1,9 +1,11 @@
 .guideContainer {
   margin: 20px 20px 20px 20px;
-  border: 2px solid blue;
+  border: 2px solid darkblue;
   border-radius: 15px;
   text-align: center;
 }
 .guideImg {
   margin-top: 20px;
+  width: 100px;
+  height: 130px;
 }

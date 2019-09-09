@@ -33,7 +33,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Start} />
-            <Route exact path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
+            <Route path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
             <Route exact path="/guides" render={() => <Guides listOfItems={this.state.listOfGuides} />} />
             <Route
               exact
