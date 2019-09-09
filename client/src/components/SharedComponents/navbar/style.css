@@ -8,20 +8,20 @@ body {
   color: white;
 }
 
-img {
+.logo{
   width: 68px;
   height: 74px;
-  margin: 3% 3% 3% 2%;
+  margin: 1% 0% 0% 15%;
 }
 
 .menu {
   width: 42px;
   height: 52px;
-  margin: 45% 3% 0% 7%;
+  margin: 39% 5% 2% 21%;
 }
 
 h1 {
-  margin: 12% 7% 0% -3%;
+  margin: 9% 3% 0% 0%;
   font-size: 90%;
 }
 

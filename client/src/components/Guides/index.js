@@ -1,6 +1,7 @@
 import React from 'react'
 import Filter from '../Filter'
 import ListOfItems from '../ListOfItems'
+import './style.css'
 
 class Guides extends React.Component {
   state = {
@@ -14,11 +15,9 @@ class Guides extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h3>Guides</h3>
-        <fieldset className="filter">
-          <legend>Filter</legend>
+
           <Filter filterList={[ 'English', 'Italian', 'French' ]} updateClickedFilter={this.updateClickedFilter} />
-        </fieldset>
+
         <ListOfItems type={'guides'} listOfItems={this.props.listOfItems} />
       </React.Fragment>
     )

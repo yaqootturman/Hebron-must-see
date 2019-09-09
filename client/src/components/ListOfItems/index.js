@@ -9,7 +9,6 @@ class ListOfItems extends Component {
     const { type } = this.props
     return (
       <div>
-        <h1>hello</h1>
         {
           <ul className="ItemsContainer ">
             {this.props.listOfItems.map((element) => (

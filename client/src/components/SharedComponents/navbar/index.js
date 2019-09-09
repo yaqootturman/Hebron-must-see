@@ -19,7 +19,7 @@ const NavBar = () => {
             <a href="/arabic-words">Arabic Words</a>
           </div>
         </div>
-        <img alt="logo" src={logo} />
+        <img className="logo" alt="logo" src={logo} />
         <h1>HEBRON MUST-SEE</h1>
       </nav>
     </React.Fragment>
