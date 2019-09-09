@@ -4,19 +4,25 @@ import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
+import OneGuide from './components/OneGuide'
 import NavBar from './components/SharedComponents/navbar'
 import './App.css'
 import axios from 'axios'
 
 class App extends Component {
   state = {
-    listOfItems: []
+    listOfPlaces: [],
+    listOfGuides: []
   }
 
   componentDidMount() {
     axios.get(`/api/places`).then(({ data }) => {
-      this.setState({ listOfItems: data })
-      console.log(data.data)
+      this.setState({ listOfPlaces: data })
+      console.log('data', data)
+    })
+    axios.get('/api/guides').then(({ data }) => {
+      this.setState({ listOfGuides: data })
+      console.log('data', data)
     })
   }
 
@@ -27,13 +33,20 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Start} />
-            <Route exact path="/places" render={() => <Places listOfItems={this.state.listOfItems} />} />
-            <Route exact path="/guides" component={Guides} />
+            <Route exact path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
+            <Route exact path="/guides" render={() => <Guides listOfItems={this.state.listOfGuides} />} />
             <Route
               exact
               path="/places/:id"
               render={(props) => (
-                <OnePlace title={`Props through render`} listOfItems={this.state.listOfItems} {...props} />
+                <OnePlace title={`Props through render`} listOfItems={this.state.listOfPlaces} {...props} />
+              )}
+            />
+            <Route
+              exact
+              path="/guides/:id"
+              render={(props) => (
+                <OneGuide title={`Props through render`} guide={this.state.listOfGuides[props.match.params.id]} />
               )}
             />
           </Switch>

@@ -1,25 +1,18 @@
 .listCards {
   margin: 5px;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 6px hsla(220, 10%, 30%, 0.2),
-    0 8px 16px hsla(220, 10%, 30%, 0.2);
+  border-radius: 15px;
+  background-color: lightgray;
+  box-shadow: 0 2px 6px hsla(220, 10%, 30%, 0.2), 0 8px 16px hsla(220, 10%, 30%, 0.2);
   padding: 1rem;
-  background-color: #fff;
-  /* position: absolute; */
-  /* width: 108px; */
-  /* height: 104px; */
-  left: 47px;
-  top: 293px;
+  text-align: center;
 }
 
-.placesContainer {
+.ItemsContainer {
   margin-left: -30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
-  grid-gap: 1.5rem;
-  align-content: start;
+  align-content: center;
 }
 
 .placeImage1 {
@@ -43,4 +36,5 @@ ul {
   text-align: center;
   width: 120px;
   height: 100px;
+  border-radius: 15px;
 }

@@ -1,10 +1,10 @@
 import React from 'react'
-import './navbar.css'
+import './style.css'
 import logo from '../../../assets/logo.png'
 
 const NavBar = () => {
   return (
-    <>
+    <React.Fragment>
       <nav className="navbar">
         <div className="dropdown">
           <img
@@ -22,7 +22,7 @@ const NavBar = () => {
         <img alt="logo" src={logo} />
         <h1>HEBRON MUST-SEE</h1>
       </nav>
-    </>
+    </React.Fragment>
   )
 }
 
