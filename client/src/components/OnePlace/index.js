@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import ListOfItems from "../ListOfItems"
+import React, { Component } from 'react'
+import ListOfItems from '../ListOfItems'
 
 class OnePlace extends Component {
   render() {

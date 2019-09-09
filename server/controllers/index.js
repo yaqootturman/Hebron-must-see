@@ -1,9 +1,12 @@
-const express = require("express")
+const express = require('express')
 const router = express.Router()
-const { getPlaces } = require("./places")
-const { getGuides } = require("./guides")
+const { getPlaces } = require('./places')
+const { login } = require('./login')
+const { getGuides } = require('./guides')
+const { isAuthenticated } = require('../middleware/auth')
 
-router.get("/places", getPlaces)
-router.get("/guides", getGuides)
+router.get('/places', isAuthenticated, getPlaces)
+router.post('/login', login)
+router.get('/guides', getGuides)
 
 module.exports = router

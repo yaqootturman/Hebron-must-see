@@ -1,17 +1,17 @@
-import React from "react"
-import Filter from "../Filter"
-import axios from "axios"
-import ListOfItems from "../ListOfItems"
+import React from 'react'
+import Filter from '../Filter'
+import axios from 'axios'
+import ListOfItems from '../ListOfItems'
 
 class Guides extends React.Component {
   state = {
     listOfItems: [],
     filteredItems: [],
-    clickedFilter: ""
+    clickedFilter: ''
   }
 
   componentDidMount() {
-    axios.get("/api/guides").then(result => {
+    axios.get('/api/guides').then(result => {
       this.setState({ listOfItems: result.data })
     })
   }
@@ -25,11 +25,11 @@ class Guides extends React.Component {
         <fieldset className="filter">
           <legend>Filter</legend>
           <Filter
-            filterList={["English", "Italian", "French"]}
+            filterList={['English', 'Italian', 'French']}
             updateClickedFilter={this.updateClickedFilter}
           />
         </fieldset>
-        <ListOfItems type={"guides"} listOfItems={this.state.listOfItems} />
+        <ListOfItems type={'guides'} listOfItems={this.state.listOfItems} />
       </React.Fragment>
     )
   }

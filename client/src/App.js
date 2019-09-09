@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import axios from 'axios'
 import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
+import Login from './components/SharedComponents/Login'
 import NavBar from './components/SharedComponents/navbar'
 import './App.css'
-import axios from 'axios'
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path="/Login" component={Login} />
           </Switch>
         </Router>
       </>
