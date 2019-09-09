@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 
-button {
+.loginButton {
   border-radius: 20px;
   padding: 2%;
   margin-top: 3%;
