@@ -7,16 +7,17 @@ import { Route, Link } from "react-router-dom"
 class ListOfItems extends Component {
   render() {
     const { type } = this.props
+
     return (
       <div>
         <h1>hello</h1>
         {
           <ul classNameName="placesContainer ">
             {this.props.listOfItems.map(element => (
-              <Link to={`/${type}/:${element.id}`}>
-                <li classNameName="listCards">
-                  <div>
-                    {type === "places" ? (
+              <li classNameName="listCards">
+                <div>
+                  {type === "places" ? (
+                    <Link to={`/${type}/${element.place_id}`}>
                       <div>
                         <h3>{element.name}</h3>
                         <img
@@ -25,7 +26,9 @@ class ListOfItems extends Component {
                           className="placeImage1"
                         />
                       </div>
-                    ) : (
+                    </Link>
+                  ) : (
+                    <Link to={`/${type}/:${element.guide_id}`}>
                       <div>
                         <img
                           src={element.photo}
@@ -35,10 +38,10 @@ class ListOfItems extends Component {
                         <h3 className="guideName">{element.name}</h3>
                         <h3 className="guidePhone">{element.phone}</h3>
                       </div>
-                    )}
-                  </div>
-                </li>
-              </Link>
+                    </Link>
+                  )}
+                </div>
+              </li>
             ))}
           </ul>
         }

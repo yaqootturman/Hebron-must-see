@@ -5,16 +5,10 @@ import ListOfItems from "../ListOfItems"
 
 class Guides extends React.Component {
   state = {
-    listOfItems: [],
     filteredItems: [],
     clickedFilter: ""
   }
 
-  componentDidMount() {
-    axios.get("/api/guides").then(result => {
-      this.setState({ listOfItems: result.data })
-    })
-  }
   updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
   }
@@ -29,7 +23,7 @@ class Guides extends React.Component {
             updateClickedFilter={this.updateClickedFilter}
           />
         </fieldset>
-        <ListOfItems type={"guides"} listOfItems={this.state.listOfItems} />
+        <ListOfItems type={"guides"} listOfItems={this.props.listOfItems} />
       </React.Fragment>
     )
   }

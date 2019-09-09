@@ -9,12 +9,16 @@ import axios from "axios"
 
 class App extends Component {
   state = {
-    listOfItems: []
+    listOfPlaces: [],
+    listOfGuides: []
   }
 
   componentDidMount() {
     axios.get(`/api/places`).then(({ data }) => {
-      this.setState({ listOfItems: data })
+      this.setState({ listOfPlaces: data })
+    })
+    axios.get("/api/guides").then(result => {
+      this.setState({ listOfGuides: result.data })
     })
   }
 
@@ -26,17 +30,21 @@ class App extends Component {
           <Route
             exact
             path="/places"
-            render={() => <Places listOfItems={this.state.listOfItems} />}
+            render={() => <Places listOfItems={this.state.listOfPlaces} />}
           />
-          <Route exact path="/guides" component={Guides} />
+          <Route
+            exact
+            path="/guides"
+            render={() => <Guides listOfItems={this.state.listOfGuides} />}
+          />
+
           <Route
             exact
             path="/places/:id"
             render={props => (
               <OnePlace
                 title={`Props through render`}
-                listOfItems={this.state.listOfItems}
-                {...props}
+                place={this.state.listOfPlaces[props.match.params.id]}
               />
             )}
           />
