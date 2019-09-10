@@ -5,7 +5,7 @@ const { login } = require('./login')
 const { getGuides } = require('./guides')
 const { isAuthenticated } = require('../middleware/auth')
 
-router.get('/places', getPlaces, isAuthenticated)
+router.get('/places', getPlaces)
 router.post('/login', login)
 router.get('/guides', getGuides)
 
