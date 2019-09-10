@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import './style.css'
 
-class arabicListWords extends React.Component {
+class arabicListWords extends Component {
   state = {
     arabicList: []
   }
 
   componentDidMount() {
-    axios.get(`api/arabic-words`).then(result => {
-      this.setState({ arabicList: result.data })
-      console.log('the result:', result.data)
+    axios.get(`api/arabic-words`).then(({ data }) => {
+      this.setState({ arabicList: data })
     })
   }
 
   render() {
     return (
-      <>
+      <div>
         <h1> List Of Arabic Words </h1>
         <React.Fragment>
           {this.state.arabicList.map(element => (
@@ -31,7 +30,7 @@ class arabicListWords extends React.Component {
             </ul>
           ))}
         </React.Fragment>
-      </>
+      </div>
     )
   }
 }
