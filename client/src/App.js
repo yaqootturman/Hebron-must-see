@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import axios from 'axios'
 import Start from './components/Start'
+import Home from './components/Home'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
@@ -32,6 +33,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Start} />
+            <Route exact path="/home" component={Home} />
+
             <Route
               exact
               path="/places"
