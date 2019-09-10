@@ -7,9 +7,6 @@ import { Route, Link } from "react-router-dom"
 class ListOfItems extends Component {
   render() {
     const { type } = this.props
-    {
-      console.log("list of items", this.props)
-    }
 
     return (
       <div>

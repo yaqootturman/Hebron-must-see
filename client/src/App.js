@@ -22,7 +22,6 @@ class App extends Component {
     axios.get("/api/guides").then(result => {
       this.setState({ listOfGuides: result.data })
     })
-    console.log("lsdjfsf", this.state.listOfPlaces)
   }
 
   render() {
