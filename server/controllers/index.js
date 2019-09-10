@@ -4,9 +4,11 @@ const { getPlaces } = require('./places')
 const { login } = require('./login')
 const { getGuides } = require('./guides')
 const { isAuthenticated } = require('../middleware/auth')
+const { getArabicWords } = require('./arabicList')
 
 router.get('/places', getPlaces)
 router.post('/login', login)
 router.get('/guides', getGuides)
+router.get('/arabic-words', getArabicWords)
 
 module.exports = router
