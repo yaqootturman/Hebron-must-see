@@ -1,11 +1,11 @@
 body {
   margin: 0;
+  width:100%;
 }
 .navbar {
   display: flex;
   flex-direction: row;
   background-color: #1d3c4e;
-  color: white;
 }
 
 .logo{
@@ -20,9 +20,11 @@ body {
   margin: 39% 5% 2% 21%;
 }
 
-h1 {
+.appTitle {
   margin: 9% 3% 0% 0%;
   font-size: 90%;
+  color: white;
+
 }
 
 .dropdown-content {

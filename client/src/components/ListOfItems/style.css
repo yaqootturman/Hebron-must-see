@@ -1,3 +1,6 @@
+body{
+  text-align: center;
+}
 .listCards {
 
   border-radius: 15px;
@@ -16,26 +19,27 @@
   align-content: center;
 }
 
-.placeImage1 {
-  width: 150px;
+.place-image1 {
+  text-align: center;
+  width: 120px;
   height: 100px;
+  border-radius: 15px;}
+
+.place-name{
+  text-align: center;
+    width: 185px;
+    height: 51px;
+    overflow-wrap: break-word;
 }
-
-h3 {
-  height: 40px;
-  
-
-}
-
 ul {
   list-style-type: none;
 }
-.guideName {
+.guide-name {
   text-align: center;
-  height: 10px;
+  height: 20px;
 }
 
-.guideImage {
+.guide-image {
   text-align: center;
   width: 120px;
   height: 100px;

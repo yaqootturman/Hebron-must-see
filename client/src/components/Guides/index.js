@@ -1,7 +1,7 @@
 import React from 'react'
 import Filter from '../Filter'
+import axios from 'axios'
 import ListOfItems from '../ListOfItems'
-import './style.css'
 
 class Guides extends React.Component {
   state = {

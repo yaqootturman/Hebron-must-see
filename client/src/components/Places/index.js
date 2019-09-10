@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import Filter from '../Filter'
 import ListOfItems from '../ListOfItems'
 import './style.css'
@@ -8,6 +9,8 @@ class Places extends React.Component {
     filteredItems: [],
     clickedFilter: ''
   }
+
+
   componentDidMount(){
     const initialList = this.props.listOfItems
     this.setState({filteredItems:  initialList  })
@@ -23,18 +26,24 @@ class Places extends React.Component {
       item.type === clickedFilter)
     this.setState({filteredItems: filteredItems})
   }
+
   render() {
     return (
       <React.Fragment>
-        <h3>Places</h3>
+
 
           <Filter
+
             filterList={[ 'Cultural', 'Religious', 'Historical', 'Entertainment' ]}
             updateClickedFilter={this.updateClickedFilter}
           />
 
 
         <ListOfItems type={'places'} listOfItems={this.state.filteredItems} />
+
+
+
+
       </React.Fragment>
     )
   }

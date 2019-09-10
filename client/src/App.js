@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-// import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import axios from 'axios'
 import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
 import OneGuide from './components/OneGuide'
+import Login from './components/SharedComponents/Login'
 import NavBar from './components/SharedComponents/navbar'
+import arabicListWords from './components/arabicListWords'
 import './App.css'
-import axios from 'axios'
 
 class App extends Component {
   state = {
@@ -18,19 +20,18 @@ class App extends Component {
   componentDidMount() {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
-      console.log('data', data)
     })
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
-      console.log('data', data)
     })
   }
 
   render() {
     return (
       <React.Fragment>
-        <NavBar />
         <Router>
+        <NavBar />
+
           <Switch>
             <Route exact path="/" component={Start} />
             <Route exact path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
@@ -38,10 +39,12 @@ class App extends Component {
             <Route
               exact
               path="/places/:id"
-              render={(props) => (
-                <OnePlace title={`Props through render`} listOfItems={this.state.listOfPlaces} {...props} />
-              )}
-            />
+              render={props => (
+                <OnePlace
+                  title={`Props through render`}
+                  place={this.state.listOfPlaces[props.match.params.id]}  /> )}
+
+                />
             <Route
               exact
               path="/guides/:id"
@@ -49,10 +52,16 @@ class App extends Component {
                 <OneGuide title={`Props through render`} guide={this.state.listOfGuides[props.match.params.id]} />
               )}
             />
+            <Route exact path="/Login" component={Login} />
+            <Route
+              exact
+              path="/arabic-words"
+              component={arabicListWords}
+              />
           </Switch>
         </Router>
       </React.Fragment>
-    )
+)
   }
 }
 

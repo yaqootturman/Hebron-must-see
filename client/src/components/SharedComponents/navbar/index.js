@@ -15,15 +15,15 @@ const NavBar = () => {
             src="https://www.malavasig.it/WP/wp-content/uploads/2017/09/mobile_menu.png"
           />
           <div className="dropdown-content">
-            // <Link to="/">Home</Link>
-            // <Link to="/places">places</Link>
-            // <Link to="/guides">guides</Link>
-            // <Link to="/arabic-words">Arabic Words</Link>
+            <Link to="/">Home</Link>
+            <Link to="/places">places</Link>
+            <Link to="/guides">guides</Link>
+            <Link to="/arabic-words">Arabic Words</Link>
           </div>
 
         </div>
         <img className="logo" alt="logo" src={logo} />
-        <h1>HEBRON MUST-SEE</h1>
+        <h1 className="appTitle">HEBRON MUST-SEE</h1>
       </nav>
     </React.Fragment>
   )
