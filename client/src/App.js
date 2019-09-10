@@ -19,8 +19,8 @@ class App extends Component {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
     })
-    axios.get('/api/guides').then(result => {
-      this.setState({ listOfGuides: result.data })
+    axios.get('/api/guides').then(({ data }) => {
+      this.setState({ listOfGuides: data })
     })
   }
 

@@ -4,13 +4,11 @@ import './style.css'
 class OnePlace extends Component {
   render() {
     const { place } = this.props
-    console.log('in one', place)
-    //  this.props.match.url.split(":")[1])
-    // const x = this.props.listOfItems
+
     return (
       <div>
         <div>
-          <img className="palceImage1Details" src={`${place.image1}`} />
+          <img src={`${place.image1}`} />
         </div>
         <div className="placeInformation">
           <h2 className="placeName">{place.name}</h2>
