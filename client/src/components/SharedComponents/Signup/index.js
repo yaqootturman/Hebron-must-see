@@ -31,15 +31,6 @@ class Signup extends Component {
     this.setState({ displayBio: false })
   }
 
-  validateForm = () => {
-    return (
-      this.state.name.length > 1 &&
-      this.state.email.length > 6 &&
-      this.state.password.length > 6 &&
-      this.state.password === this.state.confirmPassword
-    )
-  }
-
   pressButton = event => {
     const {
       email,

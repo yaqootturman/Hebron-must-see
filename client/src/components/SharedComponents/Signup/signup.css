@@ -2,7 +2,6 @@ body {
   text-align: center;
 }
 h1 {
-  margin-left: -7%;
   color: cornflowerblue;
 }
 
@@ -36,13 +35,11 @@ input {
   margin-bottom: 10px;
   table-layout: auto;
   margin-top: 10px;
-  margin-left: -16px;
+  margin-right: 2px;
 }
 
 fieldset {
-  display: block;
-  margin-left: 34px;
-  width: 70%;
+  display: inline-block;
 }
 
 @media only screen and (min-width: 600px) {
@@ -57,8 +54,8 @@ fieldset {
     margin-bottom: 10px;
     table-layout: auto;
     margin-top: 10px;
-    margin-left: -16px;
     width: 700px;
+    margin-right: 69px;
   }
 
   button.signup {
@@ -72,9 +69,7 @@ fieldset {
   }
 
   fieldset {
-    display: block;
-    margin-left: 181px;
-    width: 70%;
+    width: 300px;
   }
 
   button {
