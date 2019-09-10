@@ -13,7 +13,7 @@ const NavBar = () => {
             src="https://www.malavasig.it/WP/wp-content/uploads/2017/09/mobile_menu.png"
           />
           <div className="dropdown-content">
-            <a href="/">Home</a>
+            <a href="/home">Home</a>
             <a href="/guides">Guide</a>
             <a href="/places">Places</a>
             <a href="/arabic-words">Arabic Words</a>
