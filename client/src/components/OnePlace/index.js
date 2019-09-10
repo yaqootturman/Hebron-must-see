@@ -10,17 +10,16 @@ class OnePlace extends Component {
         <div>
           <img src={`${place.image1}`} />
         </div>
-        <div className="placeInformation">
-          <h2 className="placeName">{place.name}</h2>
+        <div className="place-information">
+          <h2 className="place-name">{place.name}</h2>
 
-          <h2 className="placeAvailibility">{place.availability}</h2>
-          <h2 className="placePrice">{place.price}</h2>
-          <p className="placeDescription">{place.description}</p>
+          <h2 className="place-availibility">{place.availability}</h2>
+          <h2 className="place-price">{place.price}</h2>
+          <p className="place-description">{place.description}</p>
           <div>
-            <img src={`${place.image2}`} class="descriptionImage" />
-            <img src={`${place.image3}`} class="descriptionImage" />
+            <img src={`${place.image2}`} class="description-image" />
+            <img src={`${place.image3}`} class="description-image" />
           </div>
-          <p></p>
         </div>
       </div>
     )

@@ -12,9 +12,9 @@ class ListOfItems extends Component {
       <div>
         <h1>hello</h1>
         {
-          <ul className="placesContainer ">
+          <ul className="places-container ">
             {this.props.listOfItems.map(element => (
-              <li className="listCards">
+              <li className="list-cards">
                 <div>
                   {type === 'places' ? (
                     <Link to={`/${type}/${element.place_id}`}>
@@ -23,7 +23,7 @@ class ListOfItems extends Component {
                         <img
                           src={element.image1}
                           alt="not loaded"
-                          className="placeImage1"
+                          className="place-image1"
                         />
                       </div>
                     </Link>
@@ -33,10 +33,10 @@ class ListOfItems extends Component {
                         <img
                           src={element.photo}
                           alt="not loaded"
-                          className="guideImage"
+                          className="guide-image"
                         />
-                        <h3 className="guideName">{element.name}</h3>
-                        <h3 className="guidePhone">{element.phone}</h3>
+                        <h3 className="guide-name">{element.name}</h3>
+                        <h3 className="guide-phone">{element.phone}</h3>
                       </div>
                     </Link>
                   )}

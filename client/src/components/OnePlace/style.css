@@ -3,7 +3,7 @@ img {
   height: 300px;
 }
 
-.placeInformation {
+.place-information {
   background-color: #ffffff;
   width: 400px;
   position: absolute;
@@ -12,7 +12,7 @@ img {
   text-align: left;
 }
 
-.placeName {
+.place-name {
   padding-top: 20px;
 }
 h2,
@@ -27,19 +27,19 @@ h3 {
   font-size: 10px;
 }
 
-.placeDescription {
+.place-description {
   padding-top: 20px;
   font-size: 18px;
   padding-bottom: 20px;
 }
 
-.placeAvailibility,
-.placePrice {
+.place-availibility,
+.place-price {
   font-size: 18px;
   padding-bottom: 2px;
 }
 
-.descriptionImage {
+.description-image {
   width: 165px;
   height: 200px;
   margin: 17px;
