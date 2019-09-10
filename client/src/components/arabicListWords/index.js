@@ -21,11 +21,9 @@ class arabicListWords extends Component {
           {this.state.arabicList.map(({ english, arabic, pronunciation }) => (
             <ul>
               <li className="list">
-                <div>
-                  {english}
-                  {arabic}
-                  {pronunciation}
-                </div>
+                {english}
+                {arabic}
+                {pronunciation}
               </li>
             </ul>
           ))}

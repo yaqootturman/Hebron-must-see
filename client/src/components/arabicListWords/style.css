@@ -1,5 +1,4 @@
 .word1 {
-  position: absolute;
   width: 341px;
   height: 85px;
   right: 35%;
@@ -7,7 +6,6 @@
 }
 
 .word2 {
-  position: absolute;
   width: 341px;
   height: 85px;
   right: 25%;
@@ -15,7 +13,6 @@
 }
 
 .word3 {
-  position: absolute;
   width: 341px;
   height: 85px;
   right: 26%;
@@ -23,7 +20,6 @@
 }
 
 .word4 {
-  position: absolute;
   width: 341px;
   height: 85px;
   right: 30%;
