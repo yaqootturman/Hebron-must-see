@@ -4,7 +4,7 @@ import logo from '../../../assets/logo.png'
 
 const NavBar = () => {
   return (
-    <>
+    <nav>
       <nav className="navbar">
         <div className="dropdown">
           <img
@@ -19,10 +19,10 @@ const NavBar = () => {
             <a href="/arabic-words">Arabic Words</a>
           </div>
         </div>
-        <img alt="logo" src={logo} />
+        <img alt="logo" src={logo} className="logo" />
         <h1>HEBRON MUST-SEE</h1>
       </nav>
-    </>
+    </nav>
   )
 }
 
