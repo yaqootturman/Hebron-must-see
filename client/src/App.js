@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+// import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Start from './components/Start'
 import Places from './components/Places'
 import Guides from './components/Guides'
@@ -33,7 +33,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Start} />
-            <Route path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
+            <Route exact path="/places" render={() => <Places listOfItems={this.state.listOfPlaces} />} />
             <Route exact path="/guides" render={() => <Guides listOfItems={this.state.listOfGuides} />} />
             <Route
               exact
