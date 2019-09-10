@@ -18,13 +18,13 @@ class arabicListWords extends Component {
       <div>
         <h1> List Of Arabic Words </h1>
         <React.Fragment>
-          {this.state.arabicList.map(element => (
+          {this.state.arabicList.map(({ english, arabic, pronunciation }) => (
             <ul>
               <li className="list">
                 <div>
-                  {element.english}
-                  {element.arabic}
-                  {element.pronunciation}
+                  {english}
+                  {arabic}
+                  {pronunciation}
                 </div>
               </li>
             </ul>

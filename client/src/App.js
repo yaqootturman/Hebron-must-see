@@ -7,7 +7,7 @@ import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
 import Login from './components/SharedComponents/Login'
 import NavBar from './components/SharedComponents/navbar'
-import arabicListWords from './components/arabicListWords/index'
+import arabicListWords from './components/arabicListWords'
 import './App.css'
 
 class App extends Component {
