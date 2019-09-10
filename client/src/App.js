@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
-import axios from "axios"
-import Start from "./components/Start"
-import Places from "./components/Places"
-import Guides from "./components/Guides"
-import OnePlace from "./components/OnePlace"
-import Login from "./components/SharedComponents/Login"
-import NavBar from "./components/SharedComponents/navbar"
-import "./App.css"
+import React, { Component } from 'react'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import axios from 'axios'
+import Start from './components/Start'
+import Places from './components/Places'
+import Guides from './components/Guides'
+import OnePlace from './components/OnePlace'
+import Login from './components/SharedComponents/Login'
+import NavBar from './components/SharedComponents/navbar'
+import './App.css'
 
 class App extends Component {
   state = {
@@ -19,7 +19,7 @@ class App extends Component {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
     })
-    axios.get("/api/guides").then(result => {
+    axios.get('/api/guides').then(result => {
       this.setState({ listOfGuides: result.data })
     })
   }

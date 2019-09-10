@@ -1,4 +1,4 @@
-const { getPlacesQuery } = require("../database/queries/places")
+const { getPlacesQuery } = require('../database/queries/places')
 
 exports.getPlaces = (req, res, next) => {
   getPlacesQuery()

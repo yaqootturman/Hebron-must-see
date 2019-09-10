@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import "./style.css"
+import React, { Component } from 'react'
+import './style.css'
 
 class OnePlace extends Component {
   render() {
     const { place } = this.props
-    console.log("in one", place)
+    console.log('in one', place)
     //  this.props.match.url.split(":")[1])
     // const x = this.props.listOfItems
     return (
