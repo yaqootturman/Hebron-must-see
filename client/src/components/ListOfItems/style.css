@@ -22,7 +22,7 @@ body {
   /* height: 104px; */
   /* left: 47px; */
   /* top: 29 3px; */
-  margin: 10px 10px 10px 10px;
+  margin: 10px 5px 10px 5px;
 }
 
 .ItemsContainer {
@@ -37,8 +37,8 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: 190px 190px;
-  /* grid-template-columns: repeat(2, 1fr); */
+  /* grid-template-columns: 180px 180px; */
+  grid-template-columns: repeat(2, 1fr);
 
   margin-top: 1rem;
   grid-gap: 0.1px;
