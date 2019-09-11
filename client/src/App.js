@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import axios from 'axios'
-import Start from './components/Start'
 import Home from './components/Home'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
-import Signup from './components/SharedComponents/Signup'
+import OneGuide from './components/OneGuide'
 import Login from './components/SharedComponents/Login'
+import Signup from './components/SharedComponents/Signup'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
 import './App.css'
@@ -30,13 +30,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
+      <React.Fragment>
         <Router>
-          <Switch>
-            <Route exact path="/" component={Start} />
-            <Route exact path="/home" component={Home} />
+          <NavBar />
 
+          <Switch>
+            <Route exact path="/" component={Home} />
             <Route
               exact
               path="/places"
@@ -47,7 +46,6 @@ class App extends Component {
               path="/guides"
               render={() => <Guides listOfItems={this.state.listOfGuides} />}
             />
-
             <Route
               exact
               path="/places/:id"
@@ -58,16 +56,22 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/Login" component={Login} />
             <Route
               exact
-              path="/arabic-words"
-              component={arabicListWords}
-            ></Route>
+              path="/guides/:id"
+              render={props => (
+                <OneGuide
+                  title="Props through render"
+                  guide={this.state.listOfGuides[props.match.params.id]}
+                />
+              )}
+            />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/arabic-words" component={arabicListWords} />
           </Switch>
         </Router>
-      </div>
+      </React.Fragment>
     )
   }
 }

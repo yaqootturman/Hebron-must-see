@@ -3,6 +3,9 @@ import './style.css'
 
 const Filter = ({ filterList, updateClickedFilter }) => (
   <React.Fragment>
+
+  <fieldset className="filter">
+  <legend>Filter</legend>
     {filterList.map(filterType => {
       return (
         <button onClick={() => updateClickedFilter(filterType)}>
@@ -10,6 +13,8 @@ const Filter = ({ filterList, updateClickedFilter }) => (
         </button>
       )
     })}
+    </fieldset>
+
   </React.Fragment>
 )
 

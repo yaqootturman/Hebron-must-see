@@ -1,4 +1,15 @@
-button {
-  border-radius: 15px;
-  margin: 0.5em;
+.filter button {
+  border-radius: 5px;
+  width:100px;
+  margin:3%;
+  padding: 1%;
 }
+
+legend {
+  font-weight: bold;
+}
+
+ .filter {
+   margin-top: 3%;
+   padding:0px;
+ }
