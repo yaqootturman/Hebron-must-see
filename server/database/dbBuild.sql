@@ -18,7 +18,6 @@ address text not null
 );
 
 
-
 create table places_reviews
 (
 id serial primary key,
@@ -36,7 +35,6 @@ name varchar(100) not null,
 email text not null,
 password text not null
 );
-
 
 
 create table guides
@@ -67,13 +65,13 @@ FOREIGN KEY
 );
 
 
-
 create table arabic_words
 (
 id serial primary key,
 arabic text not null,
 english text not null,
-pronunciation text not null
+pronunciation text not null,
+type text not null
 );
 
 
