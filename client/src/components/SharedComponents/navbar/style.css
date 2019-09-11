@@ -10,9 +10,9 @@ body {
 }
 
 .logo{
-  width: 68px;
-  height: 74px;
-  margin: 1% 0% 0% 15%;
+  width: 74px;
+height: 74px;
+margin:  1% -5% 1% 16%;
 }
 
 .menu {
@@ -23,7 +23,7 @@ body {
 
 .appTitle {
   margin: 9% 3% 0% 0%;
-  font-size: 90%;
+  font-size: 100%;
   color: white;
 
 }
