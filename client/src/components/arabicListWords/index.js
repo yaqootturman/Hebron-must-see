@@ -5,7 +5,8 @@ import './style.css'
 
 class arabicListWords extends Component {
   state = {
-    arabicList: []
+    arabicList: [],
+    audioList: []
   }
 
   componentDidMount() {
@@ -14,21 +15,49 @@ class arabicListWords extends Component {
     })
   }
 
+  getPronunciation = (sentence, index) => {
+    console.log('call works')
+    axios
+      .get(`/api/arabic-words-pronunciation/${sentence}`)
+      .then(result => {
+        this.setState(prevState => {
+          const newAudioList = prevState.audioList.slice()
+          newAudioList[index] = result.data[0].standard_pronunciation.pathmp3
+          return { audioList: newAudioList }
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div>
         <h1> List Of Arabic Words </h1>
         <React.Fragment>
-          {this.state.arabicList.map(({ english, arabic, pronunciation }) => (
-            <ul className="list">
-              <li className="english-word">{english}</li>
-              <li className="arabic-word">{arabic}</li>
-              <li className="pronunciation">
-                <img className="speaker" src={speaker}></img>
-                {pronunciation}
-              </li>
-            </ul>
-          ))}
+          {this.state.arabicList.map(
+            ({ english, arabic, pronunciation }, index) => (
+              <ul className="list">
+                <li className="english-word">{english}</li>
+                <li className="arabic-word">{arabic}</li>
+                <li className="pronunciation">
+                  <div className="audio">
+                    <img
+                      src={speaker}
+                      className="getPronunciation"
+                      onClick={() => this.getPronunciation(arabic, index)}
+                    />
+                    <audio
+                      className="audioBar"
+                      autoPlay
+                      controls
+                      src={this.state.audioList[index]}
+                    />
+                  </div>
+                  {pronunciation}
+                </li>
+              </ul>
+            )
+          )}
         </React.Fragment>
       </div>
     )
