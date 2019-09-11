@@ -1,8 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 import Filter from '../Filter'
 import ListOfItems from '../ListOfItems'
-import './style.css'
 
 class Places extends React.Component {
   state = {
@@ -11,32 +9,31 @@ class Places extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/places').then(result => {
-      this.setState({ listOfItems: result.data })
-    })
+    this.setState({ filteredItems: this.props.listOfItems })
   }
 
   updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
+    this.updateFilteredItems(clickedFilter)
+  }
+
+  updateFilteredItems = clickedFilter => {
+    const { listOfItems } = this.props
+    const filteredItems = listOfItems.filter(
+      item => item.type === clickedFilter
+    )
+    this.setState({ filteredItems })
   }
 
   render() {
     return (
       <React.Fragment>
-        <h3>Places</h3>
-        <fieldset className="filter">
-          <legend>Filter</legend>
-          <Filter
-            filterList={[
-              'Cultural',
-              'Religious',
-              'Historical',
-              'Entertainment'
-            ]}
-            updateClickedFilter={this.updateClickedFilter}
-          />
-        </fieldset>
-        <ListOfItems type={'places'} listOfItems={this.props.listOfItems} />
+        <Filter
+          filterList={['Cultural', 'Religious', 'Historical', 'Entertainment']}
+          updateClickedFilter={this.updateClickedFilter}
+        />
+
+        <ListOfItems type="places" listOfItems={this.state.filteredItems} />
       </React.Fragment>
     )
   }

@@ -4,7 +4,6 @@ const { getPlaces } = require('./places')
 const { login } = require('./login')
 const { getGuides } = require('./guides')
 const { signUp } = require('./signup')
-const { isAuthenticated } = require('../middleware/auth')
 const { getArabicWords } = require('./arabicList')
 
 router.get('/places', getPlaces)

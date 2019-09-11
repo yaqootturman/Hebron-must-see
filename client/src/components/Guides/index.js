@@ -1,6 +1,5 @@
 import React from 'react'
 import Filter from '../Filter'
-import axios from 'axios'
 import ListOfItems from '../ListOfItems'
 
 class Guides extends React.Component {
@@ -9,21 +8,31 @@ class Guides extends React.Component {
     clickedFilter: ''
   }
 
+  componentDidMount() {
+    this.setState({ filteredItems: this.props.listOfItems })
+  }
+
   updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
+    this.updateFilteredItems(clickedFilter)
   }
+
+  updateFilteredItems = clickedFilter => {
+    const { listOfItems } = this.props
+    const filteredItems = listOfItems.filter(
+      item => item.type === clickedFilter
+    )
+    this.setState({ filteredItems })
+  }
+
   render() {
     return (
       <React.Fragment>
-        <h3>Guides</h3>
-        <fieldset className="filter">
-          <legend>Filter</legend>
-          <Filter
-            filterList={['English', 'Italian', 'French']}
-            updateClickedFilter={this.updateClickedFilter}
-          />
-        </fieldset>
-        <ListOfItems type={'guides'} listOfItems={this.props.listOfItems} />
+        <Filter
+          filterList={['English', 'Italian', 'French']}
+          updateClickedFilter={this.updateClickedFilter}
+        />
+        <ListOfItems type="guides" listOfItems={this.state.filteredItems} />
       </React.Fragment>
     )
   }

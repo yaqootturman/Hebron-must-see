@@ -70,9 +70,9 @@ class Signup extends Component {
   render() {
     return (
       <>
-        <h1>Signup</h1>
+        <h1 className="signupTitle">Signup</h1>
 
-        <form>
+        <form className="extra">
           <input
             type="text"
             name="name"
@@ -126,16 +126,16 @@ class Signup extends Component {
           )}
 
           <div className="container">
-            <fieldset>
+            <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button onClick={this.ShowDisplayBio}>Guide</button>
-              <button onClick={this.displayShorterBio}>Tourist</button>
+              <button className="typeButton"onClick={this.ShowDisplayBio}>Guide</button>
+              <button className="typeButton" onClick={this.displayShorterBio}>Tourist</button>
             </fieldset>
           </div>
 
           {this.state.displayBio ? (
-            <div className="extra">
+            <div >
               <input
                 type="text"
                 name="type"
