@@ -3,7 +3,7 @@ body {
 }
 
 .loginButton {
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 2%;
   margin-top: 3%;
   width: 25%;
@@ -11,8 +11,9 @@ body {
   margin-left: -12%;
 }
 
-input {
-  border-radius: 20px;
+.loginForm input {
+  display:block;
+  border-radius: 5px;
   height: 30px;
   padding: 2%;
   font-size: 153%;

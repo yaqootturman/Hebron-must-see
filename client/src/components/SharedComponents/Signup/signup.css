@@ -1,0 +1,98 @@
+body {
+  text-align: center;
+}
+.signupTitle {
+  font-size: large;
+  color: #00134d;
+}
+
+button.signup {
+  border-radius: 5px;
+  margin-top: 3px;
+  width: 91px;
+  height: 30px;
+  font-weight: bold;
+}
+
+.typeButton {
+  border-radius: 5px;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+  width: 70px;
+  height:25px;
+  color: white;
+  font-weight: bold;
+  background-color: cornflowerblue;
+}
+button:hover {
+  background-color: rgb(170, 69, 69);
+}
+
+.extra input {
+  border-radius: 5px;
+  height: 20px;
+  width:90%;
+  padding: 5px;
+
+  table-layout: auto;
+  margin-top: 10px;
+  margin-right: 2px;
+}
+
+.hint {
+  display: inline-block;
+  margin-top:25px;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    text-align: center;
+  }
+  .extra input{
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    font-size: x-large;
+    margin-bottom: 10px;
+    table-layout: auto;
+    margin-top: 10px;
+    width: 700px;
+    margin-right: 69px;
+  }
+
+  button.signup {
+    border-radius: 5px;
+    padding: 24px;
+    height: 69px;
+    margin-top: 8px;
+    width: 172px;
+    font-size: large;
+    margin-left: 21px;
+  }
+
+  .hint  {
+    width: 300px;
+  }
+
+  .typeButton  {
+    border-radius: px;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: large;
+    width: 75px;
+    height: 50px;
+    color: white;
+    background-color: cornflowerblue;
+  }
+  button:hover {
+    background-color: rgb(170, 69, 69);
+  }
+}
+
+.validate {
+  color: red;
+}
+
+.TrueValidate {
+  color: green;
+}

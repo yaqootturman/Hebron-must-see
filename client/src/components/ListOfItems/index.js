@@ -30,9 +30,9 @@ class ListOfItems extends Component {
             ))}
           </ul>
         ) : (
-          <ul className="ItemsContainer ">
+          <ul className="guides-container">
             {this.props.listOfItems.map(element => (
-              <li key={element.id} className="listCards">
+              <li key={element.id} className="list-guides-cards">
                 <div>
                   <Link to={`/${type}/${element.guide_id}`}>
                     <div className="guide-card">

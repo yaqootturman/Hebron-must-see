@@ -35,7 +35,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state
     return (
-      <form>
+      <form className="loginForm">
         <label htmlFor="email">
           <input
             placeholder="Email"
