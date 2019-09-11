@@ -30,7 +30,6 @@
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "express": "^4.17.1",
     "nodemon": "^1.19.1"
   },
   "dependencies": {
@@ -40,6 +39,7 @@
     "cookie-parser": "^1.4.4",
     "env2": "^2.2.2",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "express": "^4.17.1"
   }
 }
