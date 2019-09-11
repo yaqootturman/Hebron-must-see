@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import speaker from '../../assets/speaker.svg'
 import './style.css'
 
 class arabicListWords extends Component {
@@ -19,10 +20,11 @@ class arabicListWords extends Component {
         <h1> List Of Arabic Words </h1>
         <React.Fragment>
           {this.state.arabicList.map(({ english, arabic, pronunciation }) => (
-            <ul>
-              <li className="list">
-                {english}
-                {arabic}
+            <ul className="list">
+              <li className="english-word">{english}</li>
+              <li className="arabic-word">{arabic}</li>
+              <li className="pronunciation">
+                <img className="speaker" src={speaker}></img>
                 {pronunciation}
               </li>
             </ul>

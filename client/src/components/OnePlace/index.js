@@ -5,11 +5,31 @@ import './style.css'
 
 class OnePlace extends Component {
   state = {
-    token: ''
+    token: '',
+    loggedIn: false,
+    review: ''
+  }
+
+  handelChange = event => {
+    const value = event.target.value
+    this.setState({ [event.target.name]: value })
+  }
+
+  addReview = () => {
+    axios.post('')
   }
 
   loginClick = () => {
-    this.props.history.push('/login')
+    axios
+      .get('/api/auth')
+      .catch(() => this.props.history.push('/login'))
+      .then(() => {
+        if (!this.state.loggedIn) {
+          this.setState({ loggedIn: true })
+        } else {
+          alert('feature is still in progress')
+        }
+      })
   }
 
   render() {
@@ -32,6 +52,16 @@ class OnePlace extends Component {
             </div>
           </div>
           <div>
+            {this.state.loggedIn && (
+              <input
+                className="writeReview"
+                value={this.state.review}
+                placeholder="Write a review here please"
+                name="review"
+                onChange={this.handelChange}
+                onClick={this.addReview}
+              ></input>
+            )}
             <button className="addReview" onClick={this.loginClick}>
               Add Review
             </button>

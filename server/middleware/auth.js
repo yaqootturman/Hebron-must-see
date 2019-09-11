@@ -14,7 +14,7 @@ exports.isAuthenticated = (req, res, next) => {
             message: 'unauthorised'
           })
       }
-      return next()
+      return res.status(200).end()
     })
   } else {
     return res.status(401).json({ status: 'fail', message: 'unauthorised' })

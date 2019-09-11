@@ -11,6 +11,7 @@ class Login extends Component {
   handleChange = event => {
     const { value } = event.target
     this.setState({ [event.target.name]: value })
+    console.log(this.state)
   }
 
   submit = event => {
@@ -22,14 +23,13 @@ class Login extends Component {
         password
       })
       .then(res => {
-        console.log('the result', res)
         if (res.data.status === 'failed') {
           alert(res.data.message)
         } else {
           this.props.history.goBack()
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.status))
   }
 
   render() {

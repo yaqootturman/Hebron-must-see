@@ -1,3 +1,48 @@
+.english-word {
+  background: #660000;
+  border-radius: 7px;
+  width: 288px;
+  height: 54px;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 16px;
+  color: white;
+  margin: 23px;
+}
+
+.arabic-word {
+  border-radius: 7px;
+  border: 1px solid #990000;
+  position: relative;
+  width: 150px;
+  height: 27px;
+  background: white;
+  text-align: center;
+  bottom: 90px;
+  left: 173px;
+  padding-top: 7px;
+}
+
+.pronunciation {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  color: white;
+  bottom: 85px;
+  left: 180px;
+}
+
+.speaker {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  right: 8px;
+  top: 2px;
+  background-color: white;
+  border-radius: 8px;
+}
+
 .list {
-  border: 1px solid red;
+  padding: 0;
+  height: 70px;
 }

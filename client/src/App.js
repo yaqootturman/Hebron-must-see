@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Places from './components/Places'
 import Guides from './components/Guides'
 import OnePlace from './components/OnePlace'
+import Signup from './components/SharedComponents/Signup'
 import Login from './components/SharedComponents/Login'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
@@ -53,11 +54,12 @@ class App extends Component {
               render={props => (
                 <OnePlace
                   title={`Props through render`}
-                  place={this.state.listOfPlaces[props.match.params.id]}
+                  place={this.state.listOfPlaces[props.match.params.id - 1]}
                 />
               )}
             />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/Login" component={Login} />
             <Route
               exact
               path="/arabic-words"
