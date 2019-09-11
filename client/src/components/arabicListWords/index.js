@@ -7,7 +7,6 @@ import './style.css'
 class arabicListWords extends Component {
   state = {
     initialList: [],
-    arabicList: [],
     audioList: [],
     filteredItems: [],
     clickedFilter: ''
@@ -16,7 +15,6 @@ class arabicListWords extends Component {
   componentDidMount() {
     axios.get(`api/arabic-words`).then(({ data }) => {
       this.setState({
-        arabicList: data,
         initialList: data,
         filteredItems: data
       })
