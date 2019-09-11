@@ -31,7 +31,6 @@ button:hover {
   height: 20px;
   width:90%;
   padding: 5px;
-
   table-layout: auto;
   margin-top: 10px;
   margin-right: 2px;
@@ -46,6 +45,7 @@ button:hover {
   body {
     text-align: center;
   }
+
   .extra input{
     border-radius: 5px;
     height: 30px;
@@ -86,7 +86,6 @@ button:hover {
   button:hover {
     background-color: rgb(170, 69, 69);
   }
-  
 }
 
 .validate {

@@ -1,8 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 import Filter from '../Filter'
 import ListOfItems from '../ListOfItems'
-import './style.css'
 
 class Places extends React.Component {
   state = {

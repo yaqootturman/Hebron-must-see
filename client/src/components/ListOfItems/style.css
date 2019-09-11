@@ -47,9 +47,11 @@
   text-align: center;
   height: 51px;
 }
+
 ul {
   list-style-type: none;
 }
+
 .guide-name {
   text-align: center;
   height: 40px;

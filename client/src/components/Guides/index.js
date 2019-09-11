@@ -1,6 +1,5 @@
 import React from 'react'
 import Filter from '../Filter'
-import axios from 'axios'
 import ListOfItems from '../ListOfItems'
 
 class Guides extends React.Component {
@@ -8,27 +7,32 @@ class Guides extends React.Component {
     filteredItems: [],
     clickedFilter: ''
   }
-  componentDidMount(){
-    this.setState({filteredItems: this.props.listOfItems  })
 
+  componentDidMount() {
+    this.setState({ filteredItems: this.props.listOfItems })
   }
-  updateClickedFilter = (clickedFilter) => {
+
+  updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
     this.updateFilteredItems(clickedFilter)
   }
-  updateFilteredItems=(clickedFilter)=>{
-    const {listOfItems} = this.props
-    const filteredItems = listOfItems.filter((item)=>
-      item.type === clickedFilter)
-    this.setState({filteredItems: filteredItems})
-  }
-  render() {
 
+  updateFilteredItems = clickedFilter => {
+    const { listOfItems } = this.props
+    const filteredItems = listOfItems.filter(
+      item => item.type === clickedFilter
+    )
+    this.setState({ filteredItems })
+  }
+
+  render() {
     return (
       <React.Fragment>
-
-          <Filter filterList={[ 'English', 'Italian', 'French' ]} updateClickedFilter={this.updateClickedFilter} />
-        <ListOfItems type={'guides'} listOfItems={this.state.filteredItems} />
+        <Filter
+          filterList={['English', 'Italian', 'French']}
+          updateClickedFilter={this.updateClickedFilter}
+        />
+        <ListOfItems type="guides" listOfItems={this.state.filteredItems} />
       </React.Fragment>
     )
   }

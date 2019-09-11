@@ -1,8 +1,9 @@
 body {
   margin: 0;
   width:100%;
-    text-align: center;
+  text-align: center;
 }
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -11,8 +12,8 @@ body {
 
 .logo{
   width: 74px;
-height: 74px;
-margin:  1% -5% 1% 16%;
+  height: 74px;
+  margin:  1% -5% 1% 16%;
 }
 
 .menu {
@@ -25,7 +26,6 @@ margin:  1% -5% 1% 16%;
   margin: 9% 3% 0% 0%;
   font-size: 100%;
   color: white;
-
 }
 
 .dropdown-content {
