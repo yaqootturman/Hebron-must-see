@@ -5,11 +5,12 @@ const { login } = require('./login')
 const { getGuides } = require('./guides')
 const { signUp } = require('./signup')
 const { getArabicWords } = require('./arabicList')
+const { getArabicListPronunciation } = require('./arabicListPronunciation')
 
 router.get('/places', getPlaces)
 router.post('/login', login)
 router.post('/signup', signUp)
 router.get('/guides', getGuides)
 router.get('/arabic-words', getArabicWords)
-
+router.get('/arabic-words-pronunciation/:sentence', getArabicListPronunciation)
 module.exports = router
