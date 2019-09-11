@@ -1,0 +1,46 @@
+img {
+  width: 400px;
+  height: 300px;
+}
+
+.place-information {
+  background-color: #ffffff;
+  width: 400px;
+  position: absolute;
+  top: 354px;
+  border-radius: 30px;
+  text-align: left;
+}
+
+.place-name {
+  padding-top: 20px;
+}
+h2,
+h3,
+p {
+  padding-left: 18px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+
+h3 {
+  font-size: 10px;
+}
+
+.place-description {
+  padding-top: 20px;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.place-availibility,
+.place-price {
+  font-size: 18px;
+  padding-bottom: 2px;
+}
+
+.description-image {
+  width: 165px;
+  height: 200px;
+  margin: 17px;
+}
