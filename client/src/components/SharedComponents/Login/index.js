@@ -26,7 +26,7 @@ class Login extends Component {
         if (res.data.status === 'failed') {
           alert(res.data.message)
         } else {
-          alert('success connection')
+          this.props.history.goBack()
         }
       })
       .catch(err => console.log(err))
@@ -35,7 +35,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state
     return (
-      <form>
+      <form className="formStyle">
         <label htmlFor="email">
           <input
             placeholder="Email"
@@ -56,6 +56,10 @@ class Login extends Component {
             onChange={this.handleChange}
           />
         </label>
+        <p>
+          If you dont have an account please click
+          <a href="/singup">SingUp</a>
+        </p>
         <button
           className="loginButton"
           id="login"

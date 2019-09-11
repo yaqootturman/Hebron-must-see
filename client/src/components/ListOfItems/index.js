@@ -10,7 +10,6 @@ class ListOfItems extends Component {
 
     return (
       <div>
-        <h1>hello</h1>
         {
           <ul className="places-container ">
             {this.props.listOfItems.map(element => (

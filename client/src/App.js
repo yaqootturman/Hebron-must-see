@@ -21,6 +21,7 @@ class App extends Component {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
     })
+
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
     })
@@ -56,7 +57,7 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/Login" component={Login} />
+            <Route exact path="/login" component={Login} />
             <Route
               exact
               path="/arabic-words"
