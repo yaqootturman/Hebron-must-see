@@ -67,14 +67,12 @@ class arabicListWords extends Component {
                 <li className="arabic-word">{arabic}</li>
                 <li className="pronunciation">
                   <div className="audio">
-                    <input
+                    <img
                       type="image"
                       src={speaker}
                       className="getPronunciation"
                       onClick={() => this.getPronunciation(arabic, index)}
-                    >
-                      {/* <img src={speaker} className="getPronunciation" /> */}
-                    </input>
+                    />
                     <audio className="audioBar" autoPlay controls src={this.state.audioList[index]} />
                   </div>
                   {pronunciation}
