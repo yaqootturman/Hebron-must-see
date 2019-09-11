@@ -38,7 +38,6 @@ class arabicListWords extends Component {
   }
 
   getPronunciation = (sentence, index) => {
-    console.log('call works')
     axios
       .get(`/api/arabic-words-pronunciation/${sentence}`)
       .then((result) => {
@@ -73,7 +72,7 @@ class arabicListWords extends Component {
                       className="getPronunciation"
                       onClick={() => this.getPronunciation(arabic, index)}
                     />
-                    <audio className="audioBar" autoPlay controls src={this.state.audioList[index]} />
+                    <audio className="audioBar" controls src={this.state.audioList[index]} />
                   </div>
                   {pronunciation}
                 </li>
