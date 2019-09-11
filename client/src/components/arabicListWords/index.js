@@ -21,11 +21,10 @@ class arabicListWords extends Component {
         <React.Fragment>
           {this.state.arabicList.map(({ english, arabic, pronunciation }) => (
             <ul className="list">
-              <li className="english">{english}</li>
-              <li className="arabic">{arabic}</li>
+              <li className="english-word">{english}</li>
+              <li className="arabic-word">{arabic}</li>
               <li className="pronunciation">
                 <img className="speaker" src={speaker}></img>
-
                 {pronunciation}
               </li>
             </ul>

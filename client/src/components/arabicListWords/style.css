@@ -1,4 +1,4 @@
-.english {
+.english-word {
   background: #660000;
   border-radius: 7px;
   width: 288px;
@@ -9,7 +9,8 @@
   color: white;
   margin: 23px;
 }
-.arabic {
+
+.arabic-word {
   border-radius: 7px;
   border: 1px solid #990000;
   position: relative;
@@ -21,6 +22,7 @@
   left: 173px;
   padding-top: 7px;
 }
+
 .pronunciation {
   position: relative;
   width: 150px;
@@ -29,6 +31,7 @@
   bottom: 85px;
   left: 180px;
 }
+
 .speaker {
   width: 18px;
   height: 18px;
@@ -38,6 +41,7 @@
   background-color: white;
   border-radius: 8px;
 }
+
 .list {
   padding: 0;
   height: 70px;
