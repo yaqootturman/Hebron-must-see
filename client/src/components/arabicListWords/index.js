@@ -1,18 +1,42 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import speaker from '../../assets/speaker.svg'
+import Filter from '../Filter'
 import './style.css'
 
 class arabicListWords extends Component {
   state = {
+    initialList: [],
     arabicList: [],
-    audioList: []
+    audioList: [],
+    filteredItems: [],
+    clickedFilter: ''
   }
 
   componentDidMount() {
     axios.get(`api/arabic-words`).then(({ data }) => {
-      this.setState({ arabicList: data })
+      this.setState({
+        arabicList: data,
+        initialList: data,
+        filteredItems: data
+      })
     })
+  }
+
+  updateClickedFilter = clickedFilter => {
+    this.setState({ clickedFilter })
+    this.updateFilteredItems(clickedFilter)
+  }
+
+  updateFilteredItems = clickedFilter => {
+    if (clickedFilter === 'All') {
+      this.setState({ filteredItems: this.state.initialList })
+    } else {
+      const filteredItems = this.state.initialList.filter(
+        item => item.type === clickedFilter
+      )
+      this.setState({ filteredItems })
+    }
   }
 
   getPronunciation = (sentence, index) => {
@@ -32,32 +56,41 @@ class arabicListWords extends Component {
   render() {
     return (
       <div>
-        <h1> List Of Arabic Words </h1>
+        <h1 className="arabicListTitle"> List Of Arabic Words </h1>
         <React.Fragment>
-          {this.state.arabicList.map(
-            ({ english, arabic, pronunciation }, index) => (
-              <ul className="list">
-                <li className="english-word">{english}</li>
-                <li className="arabic-word">{arabic}</li>
-                <li className="pronunciation">
-                  <div className="audio">
-                    <img
-                      src={speaker}
-                      className="getPronunciation"
-                      onClick={() => this.getPronunciation(arabic, index)}
-                    />
-                    <audio
-                      className="audioBar"
-                      autoPlay
-                      controls
-                      src={this.state.audioList[index]}
-                    />
-                  </div>
-                  {pronunciation}
-                </li>
-              </ul>
-            )
-          )}
+          <Filter
+            filterList={['All', 'greetings', 'getting around']}
+            updateClickedFilter={this.updateClickedFilter}
+          />
+          <div>
+            {this.state.filteredItems.map(
+              ({ english, arabic, pronunciation }, index) => (
+                <ul className="list">
+                  <li className="english-word">{english}</li>
+                  <li className="arabic-word">{arabic}</li>
+                  <li className="pronunciation">
+                    <div className="audio">
+                      <input
+                        type="image"
+                        src={speaker}
+                        className="getPronunciation"
+                        onClick={() => this.getPronunciation(arabic, index)}
+                      >
+                        // <img src={speaker} className="getPronunciation" />
+                      </input>
+                      <audio
+                        className="audioBar"
+                        autoPlay
+                        controls
+                        src={this.state.audioList[index]}
+                      />
+                    </div>
+                    {pronunciation}
+                  </li>
+                </ul>
+              )
+            )}
+          </div>
         </React.Fragment>
       </div>
     )

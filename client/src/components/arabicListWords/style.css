@@ -1,3 +1,7 @@
+.arabicListTitle{
+  font-size: large;
+}
+
 .english-word {
   background: #660000;
   border-radius: 5px;
@@ -61,4 +65,5 @@
 .list {
   padding: 0;
   height: 70px;
+  margin-top: 5%;
 }
