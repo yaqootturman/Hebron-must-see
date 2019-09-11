@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 
-class OnePlace extends Component {
-  render() {
-    const { place } = this.props
-
+class OnePlace=({ place } )=> {
     return (
       <div>
         <div>
@@ -23,7 +20,6 @@ class OnePlace extends Component {
         </div>
       </div>
     )
-  }
 }
 
 export default OnePlace

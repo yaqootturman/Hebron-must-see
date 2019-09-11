@@ -9,8 +9,7 @@ class Guides extends React.Component {
     clickedFilter: ''
   }
   componentDidMount(){
-    const initialList = this.props.listOfItems
-    this.setState({filteredItems:  initialList  })
+    this.setState({filteredItems: this.props.listOfItems  })
 
   }
   updateClickedFilter = (clickedFilter) => {
