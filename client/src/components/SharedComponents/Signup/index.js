@@ -31,6 +31,13 @@ class Signup extends Component {
     this.setState({ displayBio: false })
   }
 
+  validatePassword = () => {
+    return (
+      this.state.password.length > 6 &&
+      this.state.password === this.state.confirmPassword
+    )
+  }
+
   pressButton = event => {
     const {
       email,
@@ -101,6 +108,22 @@ class Signup extends Component {
             value={this.state.confirmPassword}
             required
           />
+          {!this.validatePassword() ? (
+            <div>
+              <p className="validate">
+                {' '}
+                your password must be than 7 character an be same of your
+                confirm password
+              </p>
+            </div>
+          ) : (
+            <div>
+              <p className="TrueValidate">
+                {' '}
+                your password equal confirm password
+              </p>
+            </div>
+          )}
 
           <div className="container">
             <fieldset>

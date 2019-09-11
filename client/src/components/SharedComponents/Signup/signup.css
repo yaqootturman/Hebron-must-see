@@ -86,3 +86,11 @@ fieldset {
     background-color: rgb(170, 69, 69);
   }
 }
+
+.validate {
+  color: red;
+}
+
+.TrueValidate {
+  color: green;
+}
