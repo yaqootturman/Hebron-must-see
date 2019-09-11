@@ -9,7 +9,8 @@
     "dev": "nodemon ./server/index.js",
     "dev:all": "npm run build:client && npm run dev",
     "lint": "./node_modules/.bin/eslint ./server",
-    "lint:fix": "./node_modules/.bin/eslint ./server --fix"
+    "lint:fix": "./node_modules/.bin/eslint ./server --fix",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
