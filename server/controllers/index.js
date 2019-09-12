@@ -12,7 +12,6 @@ router.get('/auth', isAuthenticated)
 router.post('/login', login)
 router.post('/signup', signUp)
 router.get('/guides', getGuides)
-router.get('/auth', isAuthenticated)
 router.get('/arabic-words', getArabicWords)
 
 module.exports = router
