@@ -62,7 +62,7 @@ class App extends Component {
               render={props => (
                 <OneGuide
                   title="Props through render"
-                  guide={this.state.listOfGuides[props.match.params.id]}
+                  guide={this.state.listOfGuides[props.match.params.id - 1]}
                 />
               )}
             />
