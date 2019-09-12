@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './style.css'
 import logo from '../../../assets/newLogo.png'
@@ -16,11 +16,10 @@ const NavBar = () => {
           />
           <div className="dropdown-content">
             <Link to="/">Home</Link>
-            <Link to="/places">places</Link>
-            <Link to="/guides">guides</Link>
+            <Link to="/places">Places</Link>
+            <Link to="/guides">Guides</Link>
             <Link to="/arabic-words">Arabic Words</Link>
           </div>
-
         </div>
         <img className="logo" alt="logo" src={logo} />
         <h1 className="appTitle">HEBRON MUST-SEE</h1>

@@ -22,14 +22,13 @@ class Login extends Component {
         password
       })
       .then(res => {
-        console.log('the result', res)
         if (res.data.status === 'failed') {
           alert(res.data.message)
         } else {
-          alert('success connection')
+          this.props.history.goBack()
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.status))
   }
 
   render() {
@@ -56,6 +55,10 @@ class Login extends Component {
             onChange={this.handleChange}
           />
         </label>
+        <p>
+          If you dont have an account please click
+          <a href="/singup">SingUp</a>
+        </p>
         <button
           className="loginButton"
           id="login"

@@ -11,6 +11,7 @@ import Signup from './components/SharedComponents/Signup'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
 import './App.css'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
     })
+
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
     })
@@ -50,8 +52,8 @@ class App extends Component {
               path="/places/:id"
               render={props => (
                 <OnePlace
-                  title="Props through render"
-                  place={this.state.listOfPlaces[props.match.params.id]}
+                  title={`Props through render`}
+                  place={this.state.listOfPlaces[props.match.params.id - 1]}
                 />
               )}
             />
@@ -61,13 +63,14 @@ class App extends Component {
               render={props => (
                 <OneGuide
                   title="Props through render"
-                  guide={this.state.listOfGuides[props.match.params.id]}
+                  guide={this.state.listOfGuides[props.match.params.id - 1]}
                 />
               )}
             />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/arabic-words" component={arabicListWords} />
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </React.Fragment>
