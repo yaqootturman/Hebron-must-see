@@ -10,13 +10,9 @@ class OnePlace extends Component {
     review: ''
   }
 
-  handelChange = event => {
+  handleChange = event => {
     const value = event.target.value
     this.setState({ [event.target.name]: value })
-  }
-
-  addReview = () => {
-    axios.post('')
   }
 
   loginClick = () => {
@@ -62,7 +58,7 @@ class OnePlace extends Component {
                 value={this.state.review}
                 placeholder="Write a review here please"
                 name="review"
-                onChange={this.handelChange}
+                onChange={this.handleChange}
                 onClick={this.addReview}
               ></input>
             )}
