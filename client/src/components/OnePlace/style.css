@@ -40,8 +40,28 @@
 
 .addReview {
   background-color: rgb(20, 59, 80);
-  margin-top: 33.5em;
+  margin-top: 19.5em;
   color: white;
   font-size: 18px;
   padding: 10px 30px;
+}
+.writeReview {
+  border-radius: 5px;
+  height: 30px;
+  padding: 2%;
+  font-size: 153%;
+  position: relative;
+  top: 350px;
+  margin-bottom: 4%;
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+.addDiv {
+  display: i;
+}
+
+.img1 {
+  width: 370px;
+  height: 600px;
 }

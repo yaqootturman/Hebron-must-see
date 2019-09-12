@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import './style.css'
@@ -36,22 +36,26 @@ class OnePlace extends Component {
     const { place } = this.props
     if (place) {
       return (
-        <div>
+        <Fragment>
           <div>
-            <img src={`${place.image1}`} />
-          </div>
-          <div className="place-information">
-            <h2 className="place-name">{place.name}</h2>
-
-            <h2 className="place-availibility">{place.availability}</h2>
-            <h2 className="place-price">{place.price}</h2>
-            <p className="place-description">{place.description}</p>
             <div>
-              <img src={`${place.image2}`} className="description-image" />
-              <img src={`${place.image3}`} className="description-image" />
+              <img src={`${place.image1}`} className="img1" />
             </div>
-          </div>
-          <div>
+            <div className="place-information">
+              <h2 className="place-name">{place.name}</h2>
+
+              <h2 className="place-availibility">
+                Availability Time : {place.availability}
+              </h2>
+              <h2 className="place-price">
+                Transportation Price : {place.price}
+              </h2>
+              <p className="place-description">{place.description}</p>
+              <div>
+                <img src={`${place.image2}`} className="description-image" />
+                <img src={`${place.image3}`} className="description-image" />
+              </div>
+            </div>
             {this.state.loggedIn && (
               <input
                 className="writeReview"
@@ -66,7 +70,7 @@ class OnePlace extends Component {
               Add Review
             </button>
           </div>
-        </div>
+        </Fragment>
       )
     } else {
       return <div>loading</div>
