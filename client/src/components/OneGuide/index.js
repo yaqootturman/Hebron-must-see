@@ -9,12 +9,10 @@ class OneGuide extends Component {
     loggedIn: false,
     review: ''
   }
-  handelChange = event => {
+
+  handleChange = event => {
     const value = event.target.value
     this.setState({ [event.target.name]: value })
-  }
-  addReview = () => {
-    axios.post('')
   }
 
   loginClick = () => {
@@ -49,11 +47,10 @@ class OneGuide extends Component {
               value={this.state.review}
               placeholder="Write a review here please"
               name="review"
-              onChange={this.handelChange}
+              onChange={this.handleChange}
               onClick={this.addReview}
             ></input>
           )}
-
           <button className="addReviewGuide" onClick={this.loginClick}>
             Add Review
           </button>
