@@ -11,6 +11,7 @@ import Signup from './components/SharedComponents/Signup'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
 import './App.css'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   state = {
@@ -68,6 +69,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/arabic-words" component={arabicListWords} />
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </React.Fragment>
