@@ -23,6 +23,7 @@ class App extends Component {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
     })
+
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
     })
@@ -51,8 +52,8 @@ class App extends Component {
               path="/places/:id"
               render={props => (
                 <OnePlace
-                  title="Props through render"
-                  place={this.state.listOfPlaces[props.match.params.id]}
+                  title={`Props through render`}
+                  place={this.state.listOfPlaces[props.match.params.id - 1]}
                 />
               )}
             />
@@ -62,7 +63,7 @@ class App extends Component {
               render={props => (
                 <OneGuide
                   title="Props through render"
-                  guide={this.state.listOfGuides[props.match.params.id]}
+                  guide={this.state.listOfGuides[props.match.params.id - 1]}
                 />
               )}
             />

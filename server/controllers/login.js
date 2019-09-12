@@ -10,7 +10,9 @@ const createToken = (email, secret) => {
 
 exports.login = (req, res) => {
   const { email, password } = req.body
-
+  if (!email || !password) {
+    return res.status(400).json({ message: 'all fields are required' })
+  }
   getPassword(email, (err, result) => {
     if (err) {
       console.log(err)
@@ -19,16 +21,20 @@ exports.login = (req, res) => {
         const hash = result.password
         bcrypt
           .compare(password, hash)
-          .then(() => createToken(email, SECRET))
-          .then(token => {
-            res
-              .cookie('token', token, { maxAge: 900000, httpOnly: true })
-              .json({ status: 'success', token })
+          .then(result => {
+            if (result) {
+              const token = createToken(email, SECRET)
+              res
+                .cookie('token', token, { maxAge: 900000, httpOnly: true })
+                .json({ status: 'success', token })
+            } else {
+              res.status(400).json({ message: 'incorrect email or password' })
+            }
           })
           .catch(err => console.log(err))
       } else {
         res
-          .status(200)
+          .status(400)
           .json({ message: 'incorrect email or password', status: 'failed' })
       }
     }

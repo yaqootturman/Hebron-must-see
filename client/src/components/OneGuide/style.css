@@ -10,3 +10,28 @@
   width: 100px;
   height: 130px;
 }
+
+.description-image {
+  width: 150px;
+  height: 200px;
+  margin-left: 13px;
+}
+
+.addReviewGuide {
+  background-color: rgb(20, 59, 80);
+  color: white;
+  font-size: 18px;
+  padding: 10px 30px;
+}
+
+.writeReviewGuide {
+  border-radius: 5px;
+  height: 30px;
+  padding: 2%;
+  font-size: 153%;
+  position: relative;
+  top: 6px;
+  margin-bottom: 4%;
+  margin-left: 15px;
+  padding-left: 20px;
+}
