@@ -8,7 +8,7 @@ const NotFound = () => {
       <h5 className="not-found-message">
         We can't find the page you are looking for, you can go to home page to
         find details
-        <a classeName="not-found-anchor" href="/home">
+        <a classeName="not-found-anchor" href="/">
           Home
         </a>
       </h5>
