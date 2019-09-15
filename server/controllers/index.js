@@ -6,6 +6,7 @@ const { getGuides } = require('./guides')
 const { signUp } = require('./signup')
 const { isAuthenticated } = require('../middleware/auth')
 const { getArabicWords } = require('./arabicList')
+const { getArabicListPronunciation } = require('./arabicListPronunciation')
 
 router.get('/places', getPlaces)
 router.get('/auth', isAuthenticated)
@@ -13,5 +14,5 @@ router.post('/login', login)
 router.post('/signup', signUp)
 router.get('/guides', getGuides)
 router.get('/arabic-words', getArabicWords)
-
+router.get('/arabic-words-pronunciation/:sentence', getArabicListPronunciation)
 module.exports = router
