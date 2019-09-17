@@ -31,11 +31,15 @@ class Signup extends Component {
     }
   }
 
-  validatePassword = () =>
-    this.state.password.length > 6 &&
-    this.state.password === this.state.confirmPassword
+  validatePassword = () => (
+      this.state.password.length > 6 &&
+      this.state.password === this.state.confirmPassword
+    )
 
   pressButton = event => {
+    event.preventDefault()
+    const { history } = this.props
+
     const {
       email,
       name,
@@ -48,6 +52,7 @@ class Signup extends Component {
       description,
       userType
     } = this.state
+
     axios
       .post('/api/signup', {
         name,
@@ -61,13 +66,16 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(result => console.log(result.data, 'ax'))
+      .then(history.push('/login'))
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render() {
     return (
       <>
-        <h1 className="signupTitle">Signup</h1>
+        <h1 className="signup-title">Signup</h1>
 
         <form className="extra">
           <input
@@ -99,7 +107,7 @@ class Signup extends Component {
 
           <input
             type="password"
-            name="confirmPassword"
+            name="confirm-password"
             onChange={this.onChange}
             placeholder="Confirm your password..."
             value={this.state.confirmPassword}
@@ -114,8 +122,7 @@ class Signup extends Component {
             </div>
           ) : (
             <div>
-              <p className="TrueValidate">
-                {' '}
+              <p className="true-validate">
                 your password equal confirm password
               </p>
             </div>
@@ -210,8 +217,14 @@ class Signup extends Component {
             <div></div>
           )}
           <br />
-          <button className="signup" type="submit" onClick={this.pressButton}>
-            Signup
+          <button
+            className="signup"
+            type="submit"
+            value="signup"
+            name="button"
+            onClick={this.pressButton}
+          >
+            SigUp
           </button>
         </form>
       </>

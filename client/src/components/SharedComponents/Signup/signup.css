@@ -1,4 +1,4 @@
-.signupTitle {
+.signup-title {
   font-size: large;
   color: #00134d;
 }
@@ -11,7 +11,7 @@ button.signup {
   font-weight: bold;
 }
 
-.typeButton {
+.type-button {
   border-radius: 5px;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
@@ -29,7 +29,7 @@ button:hover {
 .extra input {
   border-radius: 5px;
   height: 20px;
-  width: 100%;
+  width: 90%;
   padding: 5px;
   table-layout: auto;
   margin-top: 10px;
@@ -46,6 +46,18 @@ button:hover {
     text-align: center;
   }
 
+  .extra input {
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    font-size: x-large;
+    margin-bottom: 10px;
+    table-layout: auto;
+    margin-top: 10px;
+    width: 700px;
+    margin-right: 69px;
+  }
+
   button.signup {
     border-radius: 5px;
     padding: 24px;
@@ -60,7 +72,7 @@ button:hover {
     width: 300px;
   }
 
-  .typeButton {
+  .type-button {
     border-radius: px;
     margin-left: 0.5em;
     margin-bottom: 0.5em;
@@ -80,6 +92,6 @@ button:hover {
   color: red;
 }
 
-.TrueValidate {
+.true-validate {
   color: green;
 }
