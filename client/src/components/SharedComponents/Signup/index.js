@@ -69,7 +69,7 @@ class Signup extends Component {
   render() {
     return (
       <>
-        <h1 className="signupTitle">Signup</h1>
+        <h1 className="signup-title">Signup</h1>
 
         <form className="extra">
           <input
@@ -101,7 +101,7 @@ class Signup extends Component {
 
           <input
             type="password"
-            name="confirmPassword"
+            name="confirm-password"
             onChange={this.onChange}
             placeholder="Confirm your password..."
             value={this.state.confirmPassword}
@@ -117,7 +117,7 @@ class Signup extends Component {
             </div>
           ) : (
             <div>
-              <p className="TrueValidate">
+              <p className="true-validate">
                 {' '}
                 your password equal confirm password
               </p>
@@ -128,10 +128,10 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="typeButton" onClick={this.ShowDisplayBio}>
+              <button className="type-button" onClick={this.ShowDisplayBio}>
                 Guide
               </button>
-              <button className="typeButton" onClick={this.displayShorterBio}>
+              <button className="type-button" onClick={this.displayShorterBio}>
                 Tourist
               </button>
             </fieldset>

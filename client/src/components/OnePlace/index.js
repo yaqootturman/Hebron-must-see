@@ -54,7 +54,7 @@ class OnePlace extends Component {
             </div>
             {this.state.loggedIn && (
               <input
-                className="writeReview"
+                className="write-review"
                 value={this.state.review}
                 placeholder="Write a review here please"
                 name="review"
@@ -62,7 +62,7 @@ class OnePlace extends Component {
                 onClick={this.addReview}
               />
             )}
-            <button className="addReview" onClick={this.loginClick}>
+            <button className="add-review" onClick={this.loginClick}>
               Add Review
             </button>
           </div>

@@ -56,7 +56,7 @@ class arabicListWords extends Component {
   render() {
     return (
       <div>
-        <h1 className="arabicListTitle"> List Of Arabic Words </h1>
+        <h1 className="arabic-list-title"> List Of Arabic Words </h1>
         <React.Fragment>
           <Filter
             filterList={['All', 'greetings', 'getting around']}
@@ -73,11 +73,11 @@ class arabicListWords extends Component {
                       <img
                         type="image"
                         src={speaker}
-                        className="getPronunciation"
+                        className="get-pronunciation"
                         onClick={() => this.getPronunciation(arabic, index)}
                       />
                       <audio
-                        className="audioBar"
+                        className="audio-bar"
                         controls
                         src={this.state.audioList[index]}
                       />

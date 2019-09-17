@@ -34,7 +34,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state
     return (
-      <form className="loginForm">
+      <form className="login-form">
         <label htmlFor="email">
           <input
             placeholder="Email"
@@ -60,7 +60,7 @@ class Login extends Component {
           <a href="/signup">SingUp</a>
         </p>
         <button
-          className="loginButton"
+          className="login-button"
           id="login"
           type="submit"
           value="Submit"
