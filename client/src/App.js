@@ -10,8 +10,8 @@ import Login from './components/SharedComponents/Login'
 import Signup from './components/SharedComponents/Signup'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
-import './App.css'
 import NotFound from './components/NotFound'
+import Error500 from './components/Error500/Error500'
 
 class App extends Component {
   state = {
@@ -20,13 +20,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/places`).then(({ data }) => {
-      this.setState({ listOfPlaces: data })
-    })
+    axios
+      .get(`/api/places`)
+      .then(({ data }) => {
+        this.setState({ listOfPlaces: data })
+      })
+      .catch(() => this.props.history.push('/error500'))
 
-    axios.get('/api/guides').then(({ data }) => {
-      this.setState({ listOfGuides: data })
-    })
+    axios
+      .get('/api/guides')
+      .then(({ data }) => {
+        this.setState({ listOfGuides: data })
+      })
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {
@@ -52,7 +58,7 @@ class App extends Component {
               path="/places/:id"
               render={props => (
                 <OnePlace
-                  title={`Props through render`}
+                  title="Props through render"
                   place={this.state.listOfPlaces[props.match.params.id - 1]}
                 />
               )}
@@ -70,6 +76,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/arabic-words" component={arabicListWords} />
+            <Route exact path="/error500" component={Error500} />
             <Route component={NotFound} />
           </Switch>
         </Router>
