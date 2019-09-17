@@ -1,28 +1,35 @@
-import React from 'react'
-import Filter from '../Filter'
-import ListOfItems from '../ListOfItems'
+import React from "react"
+import Filter from "../Filter"
+import ListOfItems from "../ListOfItems"
 
 class Guides extends React.Component {
   state = {
     initialList: [],
     filteredItems: [],
-    clickedFilter: ''
+    clickedFilter: ""
   }
 
   componentDidMount() {
-    this.setState({ initialList: this.props.listOfItems, filteredItems: this.props.listOfItems })
+    const listOfGuides = sessionStorage.getItem("guides")
+    const parsedData = JSON.parse(listOfGuides)
+    this.setState({
+      initialList: parsedData,
+      filteredItems: parsedData
+    })
   }
 
-  updateClickedFilter = (clickedFilter) => {
+  updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
     this.updateFilteredItems(clickedFilter)
   }
 
-  updateFilteredItems = (clickedFilter) => {
-    if (clickedFilter === 'All') {
+  updateFilteredItems = clickedFilter => {
+    if (clickedFilter === "All") {
       this.setState({ filteredItems: this.state.initialList })
     } else {
-      const filteredItems = this.state.initialList.filter((item) => item.type === clickedFilter)
+      const filteredItems = this.state.initialList.filter(
+        item => item.type === clickedFilter
+      )
       this.setState({ filteredItems })
     }
   }
@@ -30,7 +37,10 @@ class Guides extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Filter filterList={[ 'All', 'English', 'Italian', 'French' ]} updateClickedFilter={this.updateClickedFilter} />
+        <Filter
+          filterList={["All", "English", "Italian", "French"]}
+          updateClickedFilter={this.updateClickedFilter}
+        />
         <ListOfItems type="guides" listOfItems={this.state.filteredItems} />
       </React.Fragment>
     )
