@@ -1,7 +1,7 @@
 .guide-container {
-  margin: 20px 20px 20px 20px;
-  border: 2px solid darkblue;
-  border-radius: 15px;
+  margin: 10% 5% 20% 5%;
+  border: 3px solid darkblue;
+  border-radius: 7%;
   text-align: center;
 }
 
@@ -12,16 +12,16 @@
 }
 
 .description-image {
-  width: 150px;
-  height: 200px;
-  margin-left: 13px;
+  width: 43%;
+  height: 225px;
+  margin-left: 5%;
 }
 
 .add-review-guide {
   background-color: rgb(20, 59, 80);
   color: white;
   font-size: 18px;
-  padding: 10px 30px;
+  padding: 2% 7%;
 }
 
 .write-review-guide {
