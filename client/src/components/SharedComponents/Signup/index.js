@@ -17,6 +17,7 @@ class Signup extends Component {
     phone: '',
     userType: 'user'
   }
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -32,13 +33,15 @@ class Signup extends Component {
   }
 
   validatePassword = () => {
-    return (
+    const isPasswordValid =
       this.state.password.length > 6 &&
       this.state.password === this.state.confirmPassword
-    )
+    return isPasswordValid
   }
 
   pressButton = event => {
+    event.preventDefault()
+
     const {
       email,
       name,
@@ -64,7 +67,10 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(result => console.log(result.data, 'ax'))
+      .then(result => console.log(result.data))
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render() {
@@ -129,13 +135,17 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="typeButton"onClick={this.ShowDisplayBio}>Guide</button>
-              <button className="typeButton" onClick={this.displayShorterBio}>Tourist</button>
+              <button className="typeButton" onClick={this.ShowDisplayBio}>
+                Guide
+              </button>
+              <button className="typeButton" onClick={this.displayShorterBio}>
+                Tourist
+              </button>
             </fieldset>
           </div>
 
           {this.state.displayBio ? (
-            <div >
+            <div>
               <input
                 type="text"
                 name="type"
@@ -193,8 +203,14 @@ class Signup extends Component {
             <div></div>
           )}
           <br />
-          <button className="signup" type="submit" onClick={this.pressButton}>
-            Signup
+          <button
+            className="signup"
+            type="submit"
+            value="signup"
+            name="button"
+            onClick={this.pressButton}
+          >
+            SigUp
           </button>
         </form>
       </>
