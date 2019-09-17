@@ -7,5 +7,6 @@ const addUser = (name, email, password) => {
       password
     ])
     .then(res => res.rows)
+    .catch(err => console.log(err))
 }
 module.exports = addUser

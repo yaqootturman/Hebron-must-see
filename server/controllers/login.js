@@ -13,30 +13,24 @@ exports.login = (req, res) => {
   if (!email || !password) {
     return res.status(400).json({ message: 'all fields are required' })
   }
-  getPassword(email, (err, result) => {
-    if (err) {
-      console.log(err)
-    } else {
-      if (result) {
-        const hash = result.password
-        bcrypt
-          .compare(password, hash)
-          .then(result => {
-            if (result) {
-              const token = createToken(email, SECRET)
-              res
-                .cookie('token', token, { maxAge: 900000, httpOnly: true })
-                .json({ status: 'success', token })
-            } else {
-              res.status(400).json({ message: 'incorrect email or password' })
-            }
-          })
-          .catch(err => console.log(err))
-      } else {
-        res
-          .status(400)
-          .json({ message: 'incorrect email or password', status: 'failed' })
-      }
-    }
-  })
+  getPassword(email)
+    .then(data => {
+      const hash = data.password
+      bcrypt
+        .compare(password, hash)
+        .then(result => {
+          if (data) {
+            const token = createToken(email, SECRET)
+            res
+              .cookie('token', token, { maxAge: 900000, httpOnly: true })
+              .json({ status: 'success', token })
+          } else {
+            res.status(400).json({ message: 'incorrect email or password' })
+          }
+        })
+        .catch(() =>
+          res.status(400).json({ message: 'incorrect email or password' })
+        )
+    })
+    .catch(() => res.status(500).json({ err: 'login Error' }))
 }

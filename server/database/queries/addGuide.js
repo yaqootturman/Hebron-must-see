@@ -20,5 +20,6 @@ const addGuide = (
       [type, photo, description, availability, phone, age, name, email, hash]
     )
     .then(res => res.rows)
+    .catch(err => console.log(err))
 }
 module.exports = addGuide
