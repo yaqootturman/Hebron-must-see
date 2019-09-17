@@ -1,10 +1,12 @@
 const dbConnection = require('../dbConnection')
 
-const getPlacesQuery = () => {
+const getPlacesQuery = next => {
   return dbConnection
     .query('select * from places;')
     .then(res => res.rows)
-    .catch(err => console.log(err))
+    .catch(err => {
+      next(err)
+    })
 }
 
 module.exports = { getPlacesQuery }

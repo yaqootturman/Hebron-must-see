@@ -1,5 +1,5 @@
 const dbConnection = require('../dbConnection')
-const addUser = (name, email, password) => {
+const addUser = (name, email, password, next) => {
   return dbConnection
     .query('INSERT INTO users (name,email,password) values ($1,$2,$3)', [
       name,
@@ -7,6 +7,8 @@ const addUser = (name, email, password) => {
       password
     ])
     .then(res => res.rows)
-    .catch(err => console.log(err))
+    .catch(err => {
+      next(err)
+    })
 }
 module.exports = addUser
