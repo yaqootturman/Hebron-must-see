@@ -22,19 +22,18 @@ class Signup extends Component {
   onChange = event => {
     const { name, value } = event.target
     this.setState({
-      [name]: event.target.value
+      [name]: value
     })
-    if (name == 'user' && value == 'tourist') {
+    if (name === 'user' && value === 'tourist') {
       this.setState({ displayBio: false })
     } else {
       this.setState({ displayBio: true, userType: 'guide' })
     }
   }
 
-  validatePassword = () => (
-      this.state.password.length > 6 &&
-      this.state.password === this.state.confirmPassword
-    )
+  validatePassword = () =>
+    this.state.password.length > 6 &&
+    this.state.password === this.state.confirmPassword
 
   pressButton = event => {
     event.preventDefault()
