@@ -8,7 +8,7 @@ const createToken = (email, secret) => {
   return sign({ email }, secret)
 }
 
-exports.login = (req, res) => {
+exports.login = (req, res, next) => {
   const { email, password } = req.body
   if (!email || !password) {
     return res.status(400).json({ message: 'all fields are required' })
@@ -32,5 +32,7 @@ exports.login = (req, res) => {
           res.status(400).json({ message: 'incorrect email or password' })
         )
     })
-    .catch(() => res.status(500).json({ err: 'login Error' }))
+    .catch(err => {
+      next(err)
+    })
 }
