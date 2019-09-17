@@ -116,7 +116,7 @@ class Signup extends Component {
             </div>
           ) : (
             <div>
-              <p className="True-validate">
+              <p className="true-validate">
                 {' '}
                 your password equal confirm password
               </p>
