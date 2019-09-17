@@ -11,12 +11,10 @@ class Places extends React.Component {
 
   componentDidMount() {
     const itemList = sessionStorage.getItem('places')
-    const dataParsed = JSON.parse(itemList)
-    console.log('list', dataParsed)
-
+    const parsedData = JSON.parse(itemList)
     this.setState({
-      initialList: dataParsed,
-      filteredItems: dataParsed
+      initialList: parsedData,
+      filteredItems: parsedData
     })
   }
 
