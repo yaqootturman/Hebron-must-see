@@ -41,6 +41,7 @@ class Signup extends Component {
 
   pressButton = event => {
     event.preventDefault()
+    const { history } = this.props
 
     const {
       email,
@@ -54,6 +55,7 @@ class Signup extends Component {
       description,
       userType
     } = this.state
+
     axios
       .post('/api/signup', {
         name,
@@ -67,7 +69,7 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(result => console.log(result.data))
+      .then(history.push('/login'))
       .catch(err => {
         console.log(err)
       })
@@ -125,7 +127,6 @@ class Signup extends Component {
           ) : (
             <div>
               <p className="TrueValidate">
-                {' '}
                 your password equal confirm password
               </p>
             </div>
