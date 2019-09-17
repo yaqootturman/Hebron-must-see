@@ -20,19 +20,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`/api/places`)
-      .then(({ data }) => {
-        this.setState({ listOfPlaces: data })
-      })
-      .catch(() => this.props.history.push('/error500'))
-
-    axios
-      .get('/api/guides')
-      .then(({ data }) => {
-        this.setState({ listOfGuides: data })
-      })
-      .catch(() => this.props.history.push('/error500'))
+    axios.get(`/api/places`).then(({ data }) => {
+      this.setState({ listOfPlaces: data })
+    })
+    axios.get('/api/guides').then(({ data }) => {
+      this.setState({ listOfGuides: data })
+    })
   }
 
   render() {
