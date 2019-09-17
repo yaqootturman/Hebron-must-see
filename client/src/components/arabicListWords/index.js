@@ -13,24 +13,29 @@ class arabicListWords extends Component {
   }
 
   componentDidMount() {
-    axios.get(`api/arabic-words`).then(({ data }) => {
-      this.setState({
-        initialList: data,
-        filteredItems: data
+    axios
+      .get(`api/arabic-words`)
+      .then(({ data }) => {
+        this.setState({
+          initialList: data,
+          filteredItems: data
+        })
       })
-    })
+      .catch(() => this.props.history.push('/error500'))
   }
 
-  updateClickedFilter = (clickedFilter) => {
+  updateClickedFilter = clickedFilter => {
     this.setState({ clickedFilter })
     this.updateFilteredItems(clickedFilter)
   }
 
-  updateFilteredItems = (clickedFilter) => {
+  updateFilteredItems = clickedFilter => {
     if (clickedFilter === 'All') {
       this.setState({ filteredItems: this.state.initialList })
     } else {
-      const filteredItems = this.state.initialList.filter((item) => item.type === clickedFilter)
+      const filteredItems = this.state.initialList.filter(
+        item => item.type === clickedFilter
+      )
       this.setState({ filteredItems })
     }
   }
@@ -38,14 +43,14 @@ class arabicListWords extends Component {
   getPronunciation = (sentence, index) => {
     axios
       .get(`/api/arabic-words-pronunciation/${sentence}`)
-      .then((result) => {
-        this.setState((prevState) => {
+      .then(result => {
+        this.setState(prevState => {
           const newAudioList = prevState.audioList.slice()
           newAudioList[index] = result.data[0].standard_pronunciation.pathmp3
           return { audioList: newAudioList }
         })
       })
-      .catch((err) => console.log(err))
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {
@@ -54,28 +59,34 @@ class arabicListWords extends Component {
         <h1 className="arabicListTitle"> List Of Arabic Words </h1>
         <React.Fragment>
           <Filter
-            filterList={[ 'All', 'greetings', 'getting around' ]}
+            filterList={['All', 'greetings', 'getting around']}
             updateClickedFilter={this.updateClickedFilter}
           />
           <div>
-            {this.state.filteredItems.map(({ english, arabic, pronunciation }, index) => (
-              <ul className="list">
-                <li className="english-word">{english}</li>
-                <li className="arabic-word">{arabic}</li>
-                <li className="pronunciation">
-                  <div className="audio">
-                    <img
-                      type="image"
-                      src={speaker}
-                      className="getPronunciation"
-                      onClick={() => this.getPronunciation(arabic, index)}
-                    />
-                    <audio className="audioBar" controls src={this.state.audioList[index]} />
-                  </div>
-                  {pronunciation}
-                </li>
-              </ul>
-            ))}
+            {this.state.filteredItems.map(
+              ({ english, arabic, pronunciation }, index) => (
+                <ul className="list">
+                  <li className="english-word">{english}</li>
+                  <li className="arabic-word">{arabic}</li>
+                  <li className="pronunciation">
+                    <div className="audio">
+                      <img
+                        type="image"
+                        src={speaker}
+                        className="getPronunciation"
+                        onClick={() => this.getPronunciation(arabic, index)}
+                      />
+                      <audio
+                        className="audioBar"
+                        controls
+                        src={this.state.audioList[index]}
+                      />
+                    </div>
+                    {pronunciation}
+                  </li>
+                </ul>
+              )
+            )}
           </div>
         </React.Fragment>
       </div>

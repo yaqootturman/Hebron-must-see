@@ -17,6 +17,7 @@ class Signup extends Component {
     phone: '',
     userType: 'user'
   }
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -31,12 +32,9 @@ class Signup extends Component {
     this.setState({ displayBio: false })
   }
 
-  validatePassword = () => {
-    return (
-      this.state.password.length > 6 &&
-      this.state.password === this.state.confirmPassword
-    )
-  }
+  validatePassword = () =>
+    this.state.password.length > 6 &&
+    this.state.password === this.state.confirmPassword
 
   pressButton = event => {
     const {
@@ -65,6 +63,7 @@ class Signup extends Component {
         userType
       })
       .then(result => console.log(result.data, 'ax'))
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {
@@ -129,13 +128,17 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="typeButton"onClick={this.ShowDisplayBio}>Guide</button>
-              <button className="typeButton" onClick={this.displayShorterBio}>Tourist</button>
+              <button className="typeButton" onClick={this.ShowDisplayBio}>
+                Guide
+              </button>
+              <button className="typeButton" onClick={this.displayShorterBio}>
+                Tourist
+              </button>
             </fieldset>
           </div>
 
           {this.state.displayBio ? (
-            <div >
+            <div>
               <input
                 type="text"
                 name="type"
