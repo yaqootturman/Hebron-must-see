@@ -32,11 +32,17 @@ class Signup extends Component {
     this.setState({ displayBio: false })
   }
 
-  validatePassword = () =>
-    this.state.password.length > 6 &&
-    this.state.password === this.state.confirmPassword
+  validatePassword = () => {
+    const isPasswordValid =
+      this.state.password.length > 6 &&
+      this.state.password === this.state.confirmPassword
+    return isPasswordValid
+  }
 
   pressButton = event => {
+    event.preventDefault()
+    const { history } = this.props
+
     const {
       email,
       name,
@@ -49,6 +55,7 @@ class Signup extends Component {
       description,
       userType
     } = this.state
+
     axios
       .post('/api/signup', {
         name,
@@ -62,7 +69,10 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(result => console.log(result.data, 'ax'))
+      .then(history.push('/login'))
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render() {
@@ -117,7 +127,6 @@ class Signup extends Component {
           ) : (
             <div>
               <p className="true-validate">
-                {' '}
                 your password equal confirm password
               </p>
             </div>
@@ -195,8 +204,14 @@ class Signup extends Component {
             <div></div>
           )}
           <br />
-          <button className="signup" type="submit" onClick={this.pressButton}>
-            Signup
+          <button
+            className="signup"
+            type="submit"
+            value="signup"
+            name="button"
+            onClick={this.pressButton}
+          >
+            SigUp
           </button>
         </form>
       </>
