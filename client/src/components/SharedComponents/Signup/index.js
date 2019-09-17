@@ -32,18 +32,12 @@ class Signup extends Component {
     this.setState({ displayBio: false })
   }
 
-<<<<<<< HEAD
   validatePassword = () => {
     const isPasswordValid =
       this.state.password.length > 6 &&
       this.state.password === this.state.confirmPassword
     return isPasswordValid
   }
-=======
-  validatePassword = () =>
-    this.state.password.length > 6 &&
-    this.state.password === this.state.confirmPassword
->>>>>>> origin
 
   pressButton = event => {
     event.preventDefault()
@@ -132,12 +126,7 @@ class Signup extends Component {
             </div>
           ) : (
             <div>
-<<<<<<< HEAD
-              <p className="TrueValidate">
-=======
               <p className="true-validate">
-                {' '}
->>>>>>> origin
                 your password equal confirm password
               </p>
             </div>
@@ -147,17 +136,10 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-<<<<<<< HEAD
-              <button className="typeButton" onClick={this.ShowDisplayBio}>
-                Guide
-              </button>
-              <button className="typeButton" onClick={this.displayShorterBio}>
-=======
               <button className="type-button" onClick={this.ShowDisplayBio}>
                 Guide
               </button>
               <button className="type-button" onClick={this.displayShorterBio}>
->>>>>>> origin
                 Tourist
               </button>
             </fieldset>
