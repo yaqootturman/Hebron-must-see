@@ -16,7 +16,7 @@ button.signup {
   margin-left: 0.5em;
   margin-bottom: 0.5em;
   width: 70px;
-  height:25px;
+  height: 25px;
   color: white;
   font-weight: bold;
   background-color: cornflowerblue;
@@ -29,7 +29,7 @@ button:hover {
 .extra input {
   border-radius: 5px;
   height: 20px;
-  width:90%;
+  width: 100%;
   padding: 5px;
   table-layout: auto;
   margin-top: 10px;
@@ -38,24 +38,12 @@ button:hover {
 
 .hint {
   display: inline-block;
-  margin-top:25px;
+  margin-top: 25px;
 }
 
 @media only screen and (min-width: 600px) {
   body {
     text-align: center;
-  }
-
-  .extra input{
-    border-radius: 5px;
-    height: 30px;
-    padding: 5px;
-    font-size: x-large;
-    margin-bottom: 10px;
-    table-layout: auto;
-    margin-top: 10px;
-    width: 700px;
-    margin-right: 69px;
   }
 
   button.signup {
@@ -68,11 +56,11 @@ button:hover {
     margin-left: 21px;
   }
 
-  .hint  {
+  .hint {
     width: 300px;
   }
 
-  .typeButton  {
+  .typeButton {
     border-radius: px;
     margin-left: 0.5em;
     margin-bottom: 0.5em;

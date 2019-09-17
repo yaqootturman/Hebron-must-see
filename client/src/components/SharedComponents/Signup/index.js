@@ -15,28 +15,25 @@ class Signup extends Component {
     age: '',
     description: '',
     phone: '',
-    userType: 'user'
+    userType: 'user',
+    user: ''
   }
+
   onChange = event => {
+    const { name, value } = event.target
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: event.target.value
     })
+    if (name == 'user' && value == 'tourist') {
+      this.setState({ displayBio: false })
+    } else {
+      this.setState({ displayBio: true, userType: 'guide' })
+    }
   }
 
-  ShowDisplayBio = () => {
-    this.setState({ displayBio: true, userType: 'guide' })
-  }
-
-  displayShorterBio = () => {
-    this.setState({ displayBio: false })
-  }
-
-  validatePassword = () => {
-    return (
-      this.state.password.length > 6 &&
-      this.state.password === this.state.confirmPassword
-    )
-  }
+  validatePassword = () =>
+    this.state.password.length > 6 &&
+    this.state.password === this.state.confirmPassword
 
   pressButton = event => {
     const {
@@ -111,7 +108,6 @@ class Signup extends Component {
           {!this.validatePassword() ? (
             <div>
               <p className="validate">
-                {' '}
                 your password must be than 7 character an be same of your
                 confirm password
               </p>
@@ -129,13 +125,34 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="typeButton"onClick={this.ShowDisplayBio}>Guide</button>
-              <button className="typeButton" onClick={this.displayShorterBio}>Tourist</button>
+
+              <form>
+                <label>
+                  <input
+                    type="radio"
+                    value="guide"
+                    name="user"
+                    checked={this.state.user === 'guide'}
+                    onChange={this.onChange}
+                  />
+                  guide
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="tourist"
+                    name="user"
+                    checked={this.state.user === 'tourist'}
+                    onChange={this.onChange}
+                  />
+                  Tourist
+                </label>
+              </form>
             </fieldset>
           </div>
 
           {this.state.displayBio ? (
-            <div >
+            <div>
               <input
                 type="text"
                 name="type"
