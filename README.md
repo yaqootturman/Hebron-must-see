@@ -38,9 +38,16 @@ Our website is a tourist guide for Hebron. It provides some services for Hebron 
 
 1. Clone the project repo.
 2. cd the project.
-3. Run `npm i` in the terminal.
+3. `npm i` in server side and client side.
 4. create database.
-5. Run `npm start` in terminal to run the website.
+5. create config.env file and add enviroment variables which we list it down
+6. `npm run dev` to run the servers
+
+
+# Enviroment variables list:
+
+1. DATABASE_URL
+2. SECRET
 
 # Team:
 
