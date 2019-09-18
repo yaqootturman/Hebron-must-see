@@ -18,12 +18,18 @@ class OneGuide extends Component {
   loginClick = () => {
     axios
       .get('/api/auth')
-      .catch(() => this.props.history.push('/login'))
-      .then(() => {
+      .then(res => {
         if (!this.state.loggedIn) {
           this.setState({ loggedIn: true })
         } else {
           alert('feature is still in progress')
+        }
+      })
+      .catch(err => {
+        if (err.response.status == 401) {
+          this.props.history.push('/login')
+        } else {
+          this.props.history.push('/error500')
         }
       })
   }
