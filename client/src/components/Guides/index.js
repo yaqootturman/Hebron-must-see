@@ -10,9 +10,11 @@ class Guides extends React.Component {
   }
 
   componentDidMount() {
+    const listOfGuides = sessionStorage.getItem('guides')
+    const parsedData = JSON.parse(listOfGuides)
     this.setState({
-      initialList: this.props.listOfItems,
-      filteredItems: this.props.listOfItems
+      initialList: parsedData,
+      filteredItems: parsedData
     })
   }
 

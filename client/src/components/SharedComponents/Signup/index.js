@@ -15,21 +15,20 @@ class Signup extends Component {
     age: '',
     description: '',
     phone: '',
-    userType: 'user'
+    userType: 'user',
+    user: ''
   }
 
   onChange = event => {
+    const { name, value } = event.target
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     })
-  }
-
-  ShowDisplayBio = () => {
-    this.setState({ displayBio: true, userType: 'guide' })
-  }
-
-  displayShorterBio = () => {
-    this.setState({ displayBio: false })
+    if (name === 'user' && value === 'tourist') {
+      this.setState({ displayBio: false })
+    } else {
+      this.setState({ displayBio: true, userType: 'guide' })
+    }
   }
 
   validatePassword = () =>
@@ -37,6 +36,9 @@ class Signup extends Component {
     this.state.password === this.state.confirmPassword
 
   pressButton = event => {
+    event.preventDefault()
+    const { history } = this.props
+
     const {
       email,
       name,
@@ -49,6 +51,7 @@ class Signup extends Component {
       description,
       userType
     } = this.state
+
     axios
       .post('/api/signup', {
         name,
@@ -62,7 +65,7 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(result => console.log(result.data, 'ax'))
+      .then(history.push('/login'))
       .catch(() => this.props.history.push('/error500'))
   }
 
@@ -110,7 +113,6 @@ class Signup extends Component {
           {!this.validatePassword() ? (
             <div>
               <p className="validate">
-                {' '}
                 your password must be than 7 character an be same of your
                 confirm password
               </p>
@@ -118,7 +120,6 @@ class Signup extends Component {
           ) : (
             <div>
               <p className="true-validate">
-                {' '}
                 your password equal confirm password
               </p>
             </div>
@@ -128,12 +129,29 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="type-button" onClick={this.ShowDisplayBio}>
-                Guide
-              </button>
-              <button className="type-button" onClick={this.displayShorterBio}>
-                Tourist
-              </button>
+
+              <form>
+                <label>
+                  <input
+                    type="radio"
+                    value="guide"
+                    name="user"
+                    checked={this.state.user === 'guide'}
+                    onChange={this.onChange}
+                  />
+                  guide
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="tourist"
+                    name="user"
+                    checked={this.state.user === 'tourist'}
+                    onChange={this.onChange}
+                  />
+                  Tourist
+                </label>
+              </form>
             </fieldset>
           </div>
 
@@ -196,8 +214,14 @@ class Signup extends Component {
             <div></div>
           )}
           <br />
-          <button className="signup" type="submit" onClick={this.pressButton}>
-            Signup
+          <button
+            className="signup"
+            type="submit"
+            value="signup"
+            name="button"
+            onClick={this.pressButton}
+          >
+            SigUp
           </button>
         </form>
       </>

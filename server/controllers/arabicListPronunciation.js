@@ -2,11 +2,14 @@ const forvoApi = require('forvo')
 
 const getArabicListPronunciation = (req, res, next) => {
   const forvo = forvoApi.default({ key: process.env.FORVO_KEY })
-
+  throw 
   forvo
-    .pronouncedWordsSearch({ search: encodeURI(req.params.sentence), language: 'ar' })
-    .then((result) => res.json(result.items))
-    .catch((err) => {
+    .pronouncedWordsSearch({
+      search: encodeURI(req.params.sentence),
+      language: 'ar'
+    })
+    .then(result => res.json(result.items))
+    .catch(err => {
       next(err)
     })
 }

@@ -22,9 +22,11 @@ class App extends Component {
   componentDidMount() {
     axios.get(`/api/places`).then(({ data }) => {
       this.setState({ listOfPlaces: data })
+      sessionStorage.setItem('places', JSON.stringify(this.state.listOfPlaces))
     })
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
+      sessionStorage.setItem('guides', JSON.stringify(this.state.listOfGuides))
     })
   }
 
