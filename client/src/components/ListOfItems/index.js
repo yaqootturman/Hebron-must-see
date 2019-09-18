@@ -12,8 +12,8 @@ class ListOfItems extends Component {
       <div>
         {type === 'places' ? (
           <ul className="places-container">
-            {this.props.listOfItems.map(element => (
-              <li key={element.id} className="list-places-cards">
+            {this.props.listOfItems.map((element, i) => (
+              <li key={i} className="list-places-cards">
                 <div>
                   <Link to={`/${type}/${element.place_id}`}>
                     <div className="place-card">
@@ -31,8 +31,8 @@ class ListOfItems extends Component {
           </ul>
         ) : (
           <ul className="guides-container">
-            {this.props.listOfItems.map(element => (
-              <li key={element.id} className="list-guides-cards">
+            {this.props.listOfItems.map((element, i) => (
+              <li key={i} className="list-guides-cards">
                 <div>
                   <Link to={`/${type}/${element.guide_id}`}>
                     <div className="guide-card">

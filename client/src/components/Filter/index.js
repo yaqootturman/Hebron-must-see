@@ -1,15 +1,17 @@
-import React from 'react'
-import './style.css'
+import React from "react"
+import "./style.css"
 
 const Filter = ({ filterList, updateClickedFilter }) => (
   <React.Fragment>
     <fieldset className="filter">
       <legend>Filter</legend>
-      {filterList.map(filterType => (
-        <button onClick={() => updateClickedFilter(filterType)}>
-          {filterType}
-        </button>
-      ))}
+      {filterList.map((filterType, i) => {
+        return (
+          <button onClick={() => updateClickedFilter(filterType)} key={i}>
+            {filterType}
+          </button>
+        )
+      })}
     </fieldset>
   </React.Fragment>
 )
