@@ -1,19 +1,19 @@
 .list-guides-cards {
-  border-radius: 5px;
+  border-radius: 7%;
   box-shadow: 0 2px 6px hsla(220, 10%, 30%, 0.2),
-    0 8px 16px hsla(220, 10%, 30%, 0.2);
+    0 8px 16px hsla(220, 6%, 8%, 0.2);
   padding: 1rem;
   background-color: #fff;
-  margin: 10px 5px 10px 5px;
+  margin: 10% 5% 10% 5%;
 }
 
 .list-places-cards {
-  border-radius: 5px;
+  border-radius: 7%;
   box-shadow: 0 2px 6px hsla(220, 10%, 30%, 0.2),
-    0 8px 16px hsla(220, 10%, 30%, 0.2);
+    0 8px 16px hsla(220, 6%, 8%, 0.2);
   padding: 1rem;
   background-color: #fff;
-  margin: 10px 5px 10px 5px;
+  margin: 10% 5% 10% 5%;
 }
 
 .guides-container {
@@ -44,16 +44,20 @@
 
 .place-name {
   text-align: center;
-  height: 51px;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
 }
 
 ul {
   list-style-type: none;
 }
 
-.guide-name {
+.guide-info {
   text-align: center;
   height: 40px;
+  text-decoration: none;
+  color: black;
 }
 
 .guide-image {

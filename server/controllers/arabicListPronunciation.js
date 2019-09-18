@@ -2,7 +2,6 @@ const forvoApi = require('forvo')
 
 const getArabicListPronunciation = (req, res, next) => {
   const forvo = forvoApi.default({ key: process.env.FORVO_KEY })
-  throw 
   forvo
     .pronouncedWordsSearch({
       search: encodeURI(req.params.sentence),
