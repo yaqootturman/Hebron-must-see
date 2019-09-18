@@ -32,7 +32,7 @@ Our website is a tourist guide for Hebron. It provides some services for Hebron 
 
 # Database schema
 
-![sc](https://user-images.githubusercontent.com/48320569/64129936-e83cde80-cdc7-11e9-8adc-783e6399a9eb.png)
+![Untitled Diagram](https://user-images.githubusercontent.com/27896127/65129588-44c50e00-da04-11e9-84f6-e0ff6f64bfbc.png)
 
 # How to Use our website:
 
