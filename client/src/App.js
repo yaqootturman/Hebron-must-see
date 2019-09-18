@@ -11,6 +11,7 @@ import Signup from './components/SharedComponents/Signup'
 import NavBar from './components/SharedComponents/navbar'
 import arabicListWords from './components/arabicListWords'
 import NotFound from './components/NotFound'
+import Error500 from './components/Error500/Error500'
 
 class App extends Component {
   state = {
@@ -23,7 +24,6 @@ class App extends Component {
       this.setState({ listOfPlaces: data })
       sessionStorage.setItem('places', JSON.stringify(this.state.listOfPlaces))
     })
-
     axios.get('/api/guides').then(({ data }) => {
       this.setState({ listOfGuides: data })
       sessionStorage.setItem('guides', JSON.stringify(this.state.listOfGuides))
@@ -71,6 +71,7 @@ class App extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Login" component={Login} />
             <Route exact path="/arabic-words" component={arabicListWords} />
+            <Route exact path="/error500" component={Error500} />
             <Route component={NotFound} />
           </Switch>
         </Router>

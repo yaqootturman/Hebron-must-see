@@ -28,7 +28,7 @@ class Login extends Component {
           this.props.history.goBack()
         }
       })
-      .catch(err => console.log(err.status))
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {

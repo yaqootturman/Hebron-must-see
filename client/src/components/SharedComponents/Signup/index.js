@@ -66,9 +66,7 @@ class Signup extends Component {
         userType
       })
       .then(history.push('/login'))
-      .catch(err => {
-        console.log(err)
-      })
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {
