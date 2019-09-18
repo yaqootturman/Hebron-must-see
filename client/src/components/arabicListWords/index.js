@@ -54,6 +54,7 @@ class arabicListWords extends Component {
   }
 
   render() {
+    let counter = 0
     return (
       <div>
         <h1 className="arabic-list-title"> List Of Arabic Words </h1>
@@ -63,30 +64,35 @@ class arabicListWords extends Component {
             updateClickedFilter={this.updateClickedFilter}
           />
           <div>
-            {this.state.filteredItems.map(
-              ({ english, arabic, pronunciation }, index) => (
-                <ul className="list">
-                  <li className="english-word">{english}</li>
-                  <li className="arabic-word">{arabic}</li>
-                  <li className="pronunciation">
-                    <div className="audio">
-                      <img
-                        type="image"
-                        src={speaker}
-                        className="get-pronunciation"
-                        onClick={() => this.getPronunciation(arabic, index)}
-                      />
-                      <audio
-                        className="audio-bar"
-                        controls
-                        src={this.state.audioList[index]}
-                      />
+            <ul className="list">
+              {this.state.filteredItems.map(
+                ({ english, arabic, pronunciation }, index) => {
+                  counter += 1
+                  return (
+                    <div key={counter}>
+                      <li className="english-word">{english}</li>
+                      <li className="arabic-word">{arabic}</li>
+                      <li className="pronunciation">
+                        <div className="audio">
+                          <img
+                            type="image"
+                            src={speaker}
+                            className="get-pronunciation"
+                            onClick={() => this.getPronunciation(arabic, index)}
+                          />
+                          <audio
+                            className="audio-bar"
+                            controls
+                            src={this.state.audioList[index]}
+                          />
+                        </div>
+                        {pronunciation}
+                      </li>
                     </div>
-                    {pronunciation}
-                  </li>
-                </ul>
-              )
-            )}
+                  )
+                }
+              )}{' '}
+            </ul>
           </div>
         </React.Fragment>
       </div>
