@@ -1,42 +1,43 @@
-import React, { Component } from 'react'
-import './signup.css'
-import axios from 'axios'
+import React, { Component } from "react"
+import "./signup.css"
+import axios from "axios"
 
 class Signup extends Component {
   state = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
     displayBio: false,
-    type: '',
-    availability: '',
-    photo: '',
-    age: '',
-    description: '',
-    phone: '',
-    userType: 'user'
+    type: "",
+    availability: "",
+    photo: "",
+    age: "",
+    description: "",
+    phone: "",
+    userType: "user",
+    user: "tourist"
   }
 
   onChange = event => {
+    const { name, value } = event.target
+
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     })
-  }
 
-  ShowDisplayBio = () => {
-    this.setState({ displayBio: true, userType: 'guide' })
-  }
-
-  displayShorterBio = () => {
-    this.setState({ displayBio: false })
+    if (name === "user" && value === "tourist") {
+      this.setState({ displayBio: false })
+    } else if (name === "user" && value === "guideguide") {
+      this.setState({ displayBio: true, userType: "" })
+    }
   }
 
   validatePassword = () => {
-    const isPasswordValid =
+    const pss =
       this.state.password.length > 6 &&
-      this.state.password === this.state.confirmPassword
-    return isPasswordValid
+      this.state.password == this.state.confirmPassword
+    return pss
   }
 
   pressButton = event => {
@@ -53,11 +54,12 @@ class Signup extends Component {
       age,
       phone,
       description,
-      userType
+      userType,
+      confirmPassword
     } = this.state
 
     axios
-      .post('/api/signup', {
+      .post("/api/signup", {
         name,
         email,
         password,
@@ -69,7 +71,7 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(history.push('/login'))
+      .then(history.push("/login"))
       .catch(err => {
         console.log(err)
       })
@@ -110,16 +112,16 @@ class Signup extends Component {
 
           <input
             type="password"
-            name="confirm-password"
+            name="confirmPassword"
             onChange={this.onChange}
             placeholder="Confirm your password..."
             value={this.state.confirmPassword}
             required
           />
+
           {!this.validatePassword() ? (
             <div>
               <p className="validate">
-                {' '}
                 your password must be than 7 character an be same of your
                 confirm password
               </p>
@@ -136,12 +138,29 @@ class Signup extends Component {
             <fieldset className="hint">
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
-              <button className="type-button" onClick={this.ShowDisplayBio}>
-                Guide
-              </button>
-              <button className="type-button" onClick={this.displayShorterBio}>
-                Tourist
-              </button>
+
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    value="guide"
+                    name="user"
+                    checked={this.state.user === "guide"}
+                    onChange={this.onChange}
+                  />
+                  guide
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="tourist"
+                    name="user"
+                    checked={this.state.user === "tourist"}
+                    onChange={this.onChange}
+                  />
+                  Tourist
+                </label>
+              </div>
             </fieldset>
           </div>
 
