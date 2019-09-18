@@ -16,24 +16,30 @@ class Signup extends Component {
     description: '',
     phone: '',
     userType: 'user',
-    user: ''
+    user: 'tourist'
   }
 
   onChange = event => {
     const { name, value } = event.target
+    console.log('llllll', name, value)
+
     this.setState({
       [name]: value
     })
+
     if (name === 'user' && value === 'tourist') {
       this.setState({ displayBio: false })
-    } else {
-      this.setState({ displayBio: true, userType: 'guide' })
+    } else if (name === 'user' && value === 'guideguide') {
+      this.setState({ displayBio: true, userType: '' })
     }
   }
 
-  validatePassword = () =>
-    this.state.password.length > 6 &&
-    this.state.password === this.state.confirmPassword
+  validatePassword = () => {
+    const pss =
+      this.state.password.length > 6 &&
+      this.state.password == this.state.confirmPassword
+    return pss
+  }
 
   pressButton = event => {
     event.preventDefault()
@@ -49,7 +55,8 @@ class Signup extends Component {
       age,
       phone,
       description,
-      userType
+      userType,
+      confirmPassword
     } = this.state
 
     axios
@@ -106,12 +113,13 @@ class Signup extends Component {
 
           <input
             type="password"
-            name="confirm-password"
+            name="confirmPassword"
             onChange={this.onChange}
             placeholder="Confirm your password..."
             value={this.state.confirmPassword}
             required
           />
+
           {!this.validatePassword() ? (
             <div>
               <p className="validate">
@@ -132,7 +140,7 @@ class Signup extends Component {
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
 
-              <form>
+              <div>
                 <label>
                   <input
                     type="radio"
@@ -153,7 +161,7 @@ class Signup extends Component {
                   />
                   Tourist
                 </label>
-              </form>
+              </div>
             </fieldset>
           </div>
 
