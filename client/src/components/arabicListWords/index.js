@@ -13,12 +13,15 @@ class arabicListWords extends Component {
   }
 
   componentDidMount() {
-    axios.get(`api/arabic-words`).then(({ data }) => {
-      this.setState({
-        initialList: data,
-        filteredItems: data
+    axios
+      .get(`api/arabic-words`)
+      .then(({ data }) => {
+        this.setState({
+          initialList: data,
+          filteredItems: data
+        })
       })
-    })
+      .catch(() => this.props.history.push('/error500'))
   }
 
   updateClickedFilter = clickedFilter => {
@@ -47,7 +50,7 @@ class arabicListWords extends Component {
           return { audioList: newAudioList }
         })
       })
-      .catch(err => console.log(err))
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {

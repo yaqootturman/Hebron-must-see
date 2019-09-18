@@ -1,22 +1,22 @@
-import React, { Component } from "react"
-import "./signup.css"
-import axios from "axios"
+import React, { Component } from 'react'
+import './signup.css'
+import axios from 'axios'
 
 class Signup extends Component {
   state = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     displayBio: false,
-    type: "",
-    availability: "",
-    photo: "",
-    age: "",
-    description: "",
-    phone: "",
-    userType: "user",
-    user: "tourist"
+    type: '',
+    availability: '',
+    photo: '',
+    age: '',
+    description: '',
+    phone: '',
+    userType: 'user',
+    user: ''
   }
 
   onChange = event => {
@@ -26,10 +26,10 @@ class Signup extends Component {
       [name]: value
     })
 
-    if (name === "user" && value === "tourist") {
+    if (name === 'user' && value === 'tourist') {
       this.setState({ displayBio: false })
-    } else if (name === "user" && value === "guideguide") {
-      this.setState({ displayBio: true, userType: "" })
+    } else if (name === 'user' && value === 'guideguide') {
+      this.setState({ displayBio: true, userType: '' })
     }
   }
 
@@ -59,7 +59,7 @@ class Signup extends Component {
     } = this.state
 
     axios
-      .post("/api/signup", {
+      .post('/api/signup', {
         name,
         email,
         password,
@@ -71,10 +71,8 @@ class Signup extends Component {
         age,
         userType
       })
-      .then(history.push("/login"))
-      .catch(err => {
-        console.log(err)
-      })
+      .then(history.push('/login'))
+      .catch(() => this.props.history.push('/error500'))
   }
 
   render() {
@@ -139,13 +137,13 @@ class Signup extends Component {
               <p>If you signup as a guide</p>
               <p> please press guide button and fill the other section</p>
 
-              <div>
+              <form>
                 <label>
                   <input
                     type="radio"
                     value="guide"
                     name="user"
-                    checked={this.state.user === "guide"}
+                    checked={this.state.user === 'guide'}
                     onChange={this.onChange}
                   />
                   guide
@@ -155,12 +153,12 @@ class Signup extends Component {
                     type="radio"
                     value="tourist"
                     name="user"
-                    checked={this.state.user === "tourist"}
+                    checked={this.state.user === 'tourist'}
                     onChange={this.onChange}
                   />
                   Tourist
                 </label>
-              </div>
+              </form>
             </fieldset>
           </div>
 

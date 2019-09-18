@@ -18,7 +18,7 @@ class OnePlace extends Component {
   loginClick = () => {
     axios
       .get('/api/auth')
-      .catch(() => this.props.history.push('/login'))
+      .catch(() => this.props.history.push('/error500'))
       .then(() => {
         if (!this.state.loggedIn) {
           this.setState({ loggedIn: true })
