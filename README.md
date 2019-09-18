@@ -48,6 +48,7 @@ Our website is a tourist guide for Hebron. It provides some services for Hebron 
 
 1. DATABASE_URL
 2. SECRET
+3. FORVO_KEY
 
 # Team:
 
