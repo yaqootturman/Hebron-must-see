@@ -4,53 +4,53 @@
 
 .english-word {
   background: #660000;
-  border-radius: 6%;
-  height: 66px;
+  border-radius: 5px;
+  height: 54px;
   text-align: left;
-  padding-top: 4%;
-  padding-left: 5%;
+  padding-top: 15px;
+  padding-left: 16px;
   color: white;
-  margin: 3%;
+  margin: 10px;
 }
 
 .arabic-word {
-  border-radius: 6%;
+  border-radius: 7px;
   border: 1px solid #990000;
   position: relative;
-  width: 44%;
-  height: 33%;
+  width: 165px;
+  height: 27px;
   background: white;
   text-align: right;
-  bottom: 122%;
-  left: 48%;
-  padding-top: 2%;
-  padding-right: 3%;
+  bottom: 86px;
+  left: 182px;
+  padding-top: 7px;
+  padding-right: 10px;
 }
 
 .pronunciation {
-  bottom: 142%;
-  left: 23%;
+  bottom: 99px;
+  left: 84px;
   position: relative;
-  margin-left: 9%;
+  margin-left: 34px;
   color: white;
 }
 
 .get-pronunciation {
-  width: 10%;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: relative;
-  left: 2%;
-  bottom: 14px;
+  left: 9px;
+  bottom: 15px;
   background-color: white;
-  border-radius: 15%;
+  border-radius: 8px;
 }
 
 .audio-bar {
-  width: 56%;
-  height: 22px;
+  width: 180px;
+  height: 20px;
   position: relative;
-  right: 54%;
-  top: 25px;
+  right: 186px;
+  top: 23px;
 }
 
 .list {
